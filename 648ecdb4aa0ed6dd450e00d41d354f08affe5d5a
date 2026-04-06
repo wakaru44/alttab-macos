@@ -1,0 +1,27 @@
+AltTab/AltTab/WindowActivator.swift
+  747e614907e3e2ff 4,6-10,12,29-30,33-36,42-43,47-51,54,56-60,65-66
+AltTab/AltTab/WindowCapture.swift
+  747e614907e3e2ff 4,8-12,20,55,68
+AltTab/AltTab/AccessibilityService.swift
+  747e614907e3e2ff 4-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "648ecdb4aa0ed6dd450e00d41d354f08affe5d5a",
+  "prompts": {
+    "747e614907e3e2ff": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6dc06cc4-f3b6-4445-bd6e-fce34c2e5390",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 199,
+      "total_deletions": 78,
+      "accepted_lines": 336,
+      "overriden_lines": 0
+    }
+  }
+}
