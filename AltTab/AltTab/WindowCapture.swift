@@ -51,6 +51,13 @@ final class WindowCapture {
         Task {
             var updatedWindows = windows
 
+            // First pass: apply cached thumbnails immediately
+            for (index, window) in updatedWindows.enumerated() where !window.isMinimized {
+                if let cachedThumbnail = cache.object(forKey: NSNumber(value: window.windowID)) {
+                    updatedWindows[index].thumbnail = cachedThumbnail
+                }
+            }
+
             do {
                 NSLog("WindowCapture: Requesting SCShareableContent...")
                 let content = try await SCShareableContent.current
@@ -59,7 +66,13 @@ final class WindowCapture {
                     content.windows.map { ($0.windowID, $0) }
                 )
 
+                // Second pass: capture fresh thumbnails for windows not in cache
                 for (index, window) in windows.enumerated() where !window.isMinimized {
+                    // Skip if already have cached thumbnail
+                    if cache.object(forKey: NSNumber(value: window.windowID)) != nil {
+                        continue
+                    }
+
                     guard let scWindow = scWindowMap[window.windowID] else {
                         NSLog("WindowCapture: Window \(window.windowID) not found in shareable content")
                         continue
