@@ -1,0 +1,74 @@
+.planning/codebase/ARCHITECTURE.md
+  7c838ebd90a9fd77 1-206
+.planning/codebase/CONCERNS.md
+  4c87f6674710ad29 1-504
+.planning/codebase/STACK.md
+  4c87f6674710ad29 1-139
+.planning/codebase/CONVENTIONS.md
+  4c87f6674710ad29 1-290
+.planning/codebase/INTEGRATIONS.md
+  4c87f6674710ad29 1-211
+.planning/codebase/TESTING.md
+  4c87f6674710ad29 1-197
+.planning/codebase/STRUCTURE.md
+  7c838ebd90a9fd77 1-205
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "c39831d81f0de5a9b54ede626bc70aa18888584b",
+  "prompts": {
+    "4c87f6674710ad29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c2cbb85c-9b0d-43fe-b727-f3d13cbd2f51",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 1341,
+      "total_deletions": 0,
+      "accepted_lines": 1341,
+      "overriden_lines": 0
+    },
+    "7100495dd44a6ace": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4750a3dd-abed-443d-87ea-92a104d9c4df",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 71,
+      "total_deletions": 81,
+      "accepted_lines": 57,
+      "overriden_lines": 0
+    },
+    "7c838ebd90a9fd77": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "846e0bc6-8b7f-42fd-afb3-ee7843883279",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 411,
+      "total_deletions": 0,
+      "accepted_lines": 411,
+      "overriden_lines": 0
+    },
+    "c9a7635429fddd47": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "895f3730-2d5a-4c95-ae4b-6970dc4097ca",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 248,
+      "total_deletions": 113,
+      "accepted_lines": 213,
+      "overriden_lines": 0
+    }
+  }
+}
