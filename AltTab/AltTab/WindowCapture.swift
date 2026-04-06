@@ -26,11 +26,20 @@ final class WindowCapture {
     ///
     /// On macOS 15+, both CGWindowListCopyWindowInfo (for window names) and
     /// CGWindowListCreateImage trigger a "Screen & System Audio Recording" prompt
-    /// whenever the binary's code signature changes. Since there is no non-prompting
-    /// way to check or use these APIs, thumbnail capture is disabled. The switcher
-    /// uses app icons instead, which work without any Screen Recording permission.
+    /// whenever the binary's code signature changes. Screenshot capture is disabled
+    /// by default. Enable via "Capture Window Screenshots" menu item.
     func captureThumbnails(for windows: [WindowInfo], completion: @escaping ([WindowInfo]) -> Void) {
-        completion(windows)
+        let captureEnabled = UserDefaults.standard.bool(forKey: "CaptureWindowScreenshots")
+
+        if captureEnabled {
+            // Capture on background thread to avoid blocking UI
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                self?.captureWithCGWindowList(windows: windows, completion: completion)
+            }
+        } else {
+            // No capture - return immediately with app icons
+            completion(windows)
+        }
     }
 
     // MARK: - Thumbnail Capture via CGWindowList
