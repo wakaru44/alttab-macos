@@ -1,0 +1,23 @@
+AltTab/AltTab/SwitcherViewModel.swift
+  747e614907e3e2ff 1-84
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "22efd8b2cabff808761e3994d324dae5c694560b",
+  "prompts": {
+    "747e614907e3e2ff": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6dc06cc4-f3b6-4445-bd6e-fce34c2e5390",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 84,
+      "total_deletions": 3,
+      "accepted_lines": 379,
+      "overriden_lines": 0
+    }
+  }
+}
