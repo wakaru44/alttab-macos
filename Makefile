@@ -47,6 +47,13 @@ logs: ##@Debug Show debug logs
 clean: ##@App Clean build artifacts
 	./build.sh clean
 
-reset-perms: ##@Debug Reset permissions
-	tccutil reset ScreenCapture com.alttab.app
-	tccutil reset Accessibility com.alttab.app
+reset-perms: ##@Debug Reset permissions and clean for fresh build
+	@echo "Killing AltTab..."
+	@pkill -9 AltTab 2>/dev/null || true
+	@sleep 0.5
+	@echo "Resetting TCC permissions..."
+	@tccutil reset ScreenCapture com.alttab.app 2>/dev/null || echo "  (not in TCC database yet)"
+	@tccutil reset Accessibility com.alttab.app 2>/dev/null || echo "  (not in TCC database yet)"
+	@echo "Cleaning build directory..."
+	@rm -rf AltTab/build
+	@echo "Done. Run 'make run-debug' next."
