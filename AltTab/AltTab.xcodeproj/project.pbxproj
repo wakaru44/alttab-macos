@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE233A5F962A4750821BAE1F /* SwitcherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */; };
 		BA1010104 /* ThumbnailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010104 /* ThumbnailRepository.swift */; };
 		BA1010103 /* WindowEnumerationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010103 /* WindowEnumerationService.swift */; };
 		BA1010102 /* AccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010102 /* AccessibilityService.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitcherViewModel.swift; sourceTree = "<group>"; };
 		A1010104 /* ThumbnailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailRepository.swift; sourceTree = "<group>"; };
 		A1010103 /* WindowEnumerationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowEnumerationService.swift; sourceTree = "<group>"; };
 		A1010102 /* AccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityService.swift; sourceTree = "<group>"; };
@@ -94,7 +96,8 @@
 				A2000010000000000000000A /* Assets.xcassets */,
 				A2000011000000000000000B /* Info.plist */,
 				A2000012000000000000000C /* AltTab.entitlements */,
-			);
+							D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */,
+);
 			path = AltTab;
 			sourceTree = "<group>";
 		};
@@ -193,7 +196,8 @@
 				A10000080000000000000008 /* PermissionManager.swift in Sources */,
 				A10000090000000000000009 /* PreferencesMenu.swift in Sources */,
 				A100001100000000000000B0 /* main.swift in Sources */,
-			);
+							FE233A5F962A4750821BAE1F /* SwitcherViewModel.swift in Sources */,
+);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
