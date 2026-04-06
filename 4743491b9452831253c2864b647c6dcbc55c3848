@@ -1,0 +1,25 @@
+AltTab/AltTab/Protocols.swift
+  747e614907e3e2ff 1-51
+AltTab/AltTab/AccessibilityService.swift
+  747e614907e3e2ff 1-52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "4743491b9452831253c2864b647c6dcbc55c3848",
+  "prompts": {
+    "747e614907e3e2ff": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6dc06cc4-f3b6-4445-bd6e-fce34c2e5390",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 103,
+      "total_deletions": 0,
+      "accepted_lines": 103,
+      "overriden_lines": 0
+    }
+  }
+}
