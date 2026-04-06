@@ -1,0 +1,38 @@
+AltTab/AltTab/AltTab.entitlements
+  c9a7635429fddd47 7-8
+AltTab/AltTab/WindowCapture.swift
+  c9a7635429fddd47 64,69,73,75,79,82
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "280f68620eebecd5ee033e9313c576b46d00ba4c",
+  "prompts": {
+    "c9a7635429fddd47": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "895f3730-2d5a-4c95-ae4b-6970dc4097ca",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 0,
+      "accepted_lines": 15,
+      "overriden_lines": 0
+    },
+    "e70f29501f0d4eaa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cd0ef427-be23-4b8d-b177-3a6fd5d909ce",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 5,
+      "overriden_lines": 0
+    }
+  }
+}
