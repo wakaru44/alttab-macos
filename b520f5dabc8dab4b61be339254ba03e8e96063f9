@@ -1,0 +1,23 @@
+AltTab/AltTab/MRUTracker.swift
+  747e614907e3e2ff 1-46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "b520f5dabc8dab4b61be339254ba03e8e96063f9",
+  "prompts": {
+    "747e614907e3e2ff": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6dc06cc4-f3b6-4445-bd6e-fce34c2e5390",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 183,
+      "total_deletions": 0,
+      "accepted_lines": 183,
+      "overriden_lines": 0
+    }
+  }
+}
