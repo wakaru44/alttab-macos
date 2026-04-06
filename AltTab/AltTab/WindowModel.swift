@@ -121,9 +121,14 @@ final class WindowModel {
         windows.removeAll { $0.ownerName == "AltTab" || $0.ownerPID == ProcessInfo.processInfo.processIdentifier }
         NSLog("WindowModel: Removed \(beforeRemoval - windows.count) AltTab windows, \(windows.count) remaining")
 
-        // 4. Sort by MRU
+        // 4. Sort by MRU (visible windows before minimized)
         pruneMRU(validIDs: Set(windows.map { $0.windowID }))
         windows.sort { a, b in
+            // Prioritize visible windows over minimized
+            if a.isMinimized != b.isMinimized {
+                return !a.isMinimized // visible (false) comes before minimized (true)
+            }
+            // Within same visibility state, sort by MRU
             let idxA = mruOrder.firstIndex(of: a.windowID) ?? Int.max
             let idxB = mruOrder.firstIndex(of: b.windowID) ?? Int.max
             return idxA < idxB
