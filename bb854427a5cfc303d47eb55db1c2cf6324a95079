@@ -1,0 +1,37 @@
+AltTab/AltTab/SettingsWindow.swift
+  7100495dd44a6ace 9,27-39,41,60,62,68-72,74,78,81,85,92,95-96,111-117,119,125,131-132,137,142,151-154,159-161,188-192,222-223
+  c9a7635429fddd47 1-8,10-26,40,42-59,61,63-67,73,75-77,79-80,82-84,86-91,93-94,97-110,118,120-124,126-130,133-136,138-141,143-150,155-158,162-187,193-221,224-230
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "bb854427a5cfc303d47eb55db1c2cf6324a95079",
+  "prompts": {
+    "7100495dd44a6ace": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4750a3dd-abed-443d-87ea-92a104d9c4df",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 56,
+      "overriden_lines": 0
+    },
+    "c9a7635429fddd47": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "895f3730-2d5a-4c95-ae4b-6970dc4097ca",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 214,
+      "overriden_lines": 0
+    }
+  }
+}
