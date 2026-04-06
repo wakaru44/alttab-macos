@@ -30,9 +30,20 @@ final class WindowCapture {
         NSLog("WindowCapture: captureThumbnails called - captureEnabled=\(captureEnabled), windowCount=\(windows.count)")
 
         if captureEnabled {
-            // Capture on background thread to avoid blocking UI
+            // Apply cached thumbnails synchronously first
+            var windowsWithCache = windows
+            for (index, window) in windows.enumerated() where !window.isMinimized {
+                if let cachedThumbnail = cache.object(forKey: NSNumber(value: window.windowID)) {
+                    windowsWithCache[index].thumbnail = cachedThumbnail
+                }
+            }
+
+            // Return immediately with cached thumbnails (if any)
+            completion(windowsWithCache)
+
+            // Then capture fresh thumbnails in background for cache misses
             DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-                self?.captureWithScreenCaptureKit(windows: windows, completion: completion)
+                self?.captureWithScreenCaptureKit(windows: windowsWithCache, completion: completion)
             }
         } else {
             // No capture - return immediately with app icons
@@ -51,13 +62,6 @@ final class WindowCapture {
         Task {
             var updatedWindows = windows
 
-            // First pass: apply cached thumbnails immediately
-            for (index, window) in updatedWindows.enumerated() where !window.isMinimized {
-                if let cachedThumbnail = cache.object(forKey: NSNumber(value: window.windowID)) {
-                    updatedWindows[index].thumbnail = cachedThumbnail
-                }
-            }
-
             do {
                 NSLog("WindowCapture: Requesting SCShareableContent...")
                 let content = try await SCShareableContent.current
@@ -66,10 +70,11 @@ final class WindowCapture {
                     content.windows.map { ($0.windowID, $0) }
                 )
 
-                // Second pass: capture fresh thumbnails for windows not in cache
+                // Capture fresh thumbnails only for windows not already in cache
                 for (index, window) in windows.enumerated() where !window.isMinimized {
                     // Skip if already have cached thumbnail
                     if cache.object(forKey: NSNumber(value: window.windowID)) != nil {
+                        NSLog("WindowCapture: Window \(window.windowID) already cached, skipping")
                         continue
                     }
 
