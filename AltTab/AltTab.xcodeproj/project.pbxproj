@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA1010104 /* ThumbnailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010104 /* ThumbnailRepository.swift */; };
+		BA1010103 /* WindowEnumerationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010103 /* WindowEnumerationService.swift */; };
+		BA1010102 /* AccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010102 /* AccessibilityService.swift */; };
+		BA1010101 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010101 /* Protocols.swift */; };
 		D6D4F592F5514633 /* MRUTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9159495798A4356 /* MRUTracker.swift */; };
+		F8E9B2A3D5C14E18 /* WindowTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F8A3B4C6D24F29 /* WindowTracker.swift */; };
 		A10000010000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000001 /* AppDelegate.swift */; };
 		A10000020000000000000002 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000020000000000000002 /* HotkeyManager.swift */; };
 		A10000030000000000000003 /* WindowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000030000000000000003 /* WindowModel.swift */; };
@@ -23,7 +28,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A1010104 /* ThumbnailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailRepository.swift; sourceTree = "<group>"; };
+		A1010103 /* WindowEnumerationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowEnumerationService.swift; sourceTree = "<group>"; };
+		A1010102 /* AccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityService.swift; sourceTree = "<group>"; };
+		A1010101 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		C9159495798A4356 /* MRUTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRUTracker.swift; sourceTree = "<group>"; };
+		E7F8A3B4C6D24F29 /* WindowTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTracker.swift; sourceTree = "<group>"; };
 		A20000010000000000000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A20000020000000000000002 /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
 		A20000030000000000000003 /* WindowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowModel.swift; sourceTree = "<group>"; };
@@ -65,9 +75,16 @@
 			children = (
 				BF2BA1C02F83D59D005B9BE3 /* SettingsWindow.swift */,
 				A20000010000000000000001 /* AppDelegate.swift */,
+				
+				A1010101 /* Protocols.swift */,
+				A1010102 /* AccessibilityService.swift */,
+				A1010103 /* WindowEnumerationService.swift */,
+				A1010104 /* ThumbnailRepository.swift */,
 				A20000020000000000000002 /* HotkeyManager.swift */,
+				C9159495798A4356 /* MRUTracker.swift */,
 				A20000030000000000000003 /* WindowModel.swift */,
 				A20000040000000000000004 /* WindowCapture.swift */,
+				E7F8A3B4C6D24F29 /* WindowTracker.swift */,
 				A20000050000000000000005 /* SwitcherPanel.swift */,
 				A20000060000000000000006 /* ThumbnailView.swift */,
 				A20000070000000000000007 /* WindowActivator.swift */,
@@ -99,16 +116,10 @@
 				A70000010000000000000001 /* Sources */,
 				A40000010000000000000001 /* Frameworks */,
 				A70000020000000000000002 /* Resources */,
-			,
-				D6D4F592F5514633 /* MRUTracker.swift in Sources */,
 			);
 			buildRules = (
-			,
-				D6D4F592F5514633 /* MRUTracker.swift in Sources */,
 			);
 			dependencies = (
-			,
-				D6D4F592F5514633 /* MRUTracker.swift in Sources */,
 			);
 			name = AltTab;
 			productName = AltTab;
@@ -137,8 +148,6 @@
 			knownRegions = (
 				en,
 				Base,
-			,
-				D6D4F592F5514633 /* MRUTracker.swift in Sources */,
 			);
 			mainGroup = A50000010000000000000001;
 			productRefGroup = A50000030000000000000003 /* Products */;
@@ -146,8 +155,6 @@
 			projectRoot = "";
 			targets = (
 				A60000010000000000000001 /* AltTab */,
-			,
-				D6D4F592F5514633 /* MRUTracker.swift in Sources */,
 			);
 		};
 /* End PBXProject section */
@@ -158,8 +165,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1000010000000000000000A /* Assets.xcassets in Resources */,
-			,
-				D6D4F592F5514633 /* MRUTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,9 +177,16 @@
 			files = (
 				BF2BA1C12F83D59D005B9BE3 /* SettingsWindow.swift in Sources */,
 				A10000010000000000000001 /* AppDelegate.swift in Sources */,
+				
+				BA1010101 /* Protocols.swift in Sources */,
+				BA1010102 /* AccessibilityService.swift in Sources */,
+				BA1010103 /* WindowEnumerationService.swift in Sources */,
+				BA1010104 /* ThumbnailRepository.swift in Sources */,
 				A10000020000000000000002 /* HotkeyManager.swift in Sources */,
+				D6D4F592F5514633 /* MRUTracker.swift in Sources */,
 				A10000030000000000000003 /* WindowModel.swift in Sources */,
 				A10000040000000000000004 /* WindowCapture.swift in Sources */,
+				F8E9B2A3D5C14E18 /* WindowTracker.swift in Sources */,
 				A10000050000000000000005 /* SwitcherPanel.swift in Sources */,
 				A10000060000000000000006 /* ThumbnailView.swift in Sources */,
 				A10000070000000000000007 /* WindowActivator.swift in Sources */,
