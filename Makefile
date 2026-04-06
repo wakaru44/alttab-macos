@@ -47,13 +47,31 @@ logs: ##@Debug Show debug logs
 clean: ##@App Clean build artifacts
 	./build.sh clean
 
-reset-perms: ##@Debug Reset permissions and clean for fresh build
+reset-perms: ##@Debug Deep clean TCC cache and build artifacts
+	@echo "Killing AltTab..."
+	@pkill -9 AltTab 2>/dev/null || true
+	@sleep 0.5
+	@echo "Resetting TCC permissions..."
+	tccutil reset ScreenCapture com.alttab.app 2>/dev/null || echo "  (not in TCC database yet)"
+	tccutil reset Accessibility com.alttab.app 2>/dev/null || echo "  (not in TCC database yet)"
+	@sleep 1
+	@echo "Cleaning build directory..."
+	@rm -rf AltTab/build
+	@echo "Done. Run 'make run-debug' next."
+
+reset-perms-deep: ##@Debug Deep clean TCC cache and build artifacts
 	@echo "Killing AltTab..."
 	@pkill -9 AltTab 2>/dev/null || true
 	@sleep 0.5
 	@echo "Resetting TCC permissions..."
 	@tccutil reset ScreenCapture com.alttab.app 2>/dev/null || echo "  (not in TCC database yet)"
 	@tccutil reset Accessibility com.alttab.app 2>/dev/null || echo "  (not in TCC database yet)"
+	@echo "Clearing TCC ad-hoc signature cache..."
+	@rm -rf ~/Library/Application\ Support/com.apple.TCC/AdhocSignatureCache/* 2>/dev/null || true
+	@echo "Restarting TCC daemon..."
+	@sudo killall -9 tccd 2>/dev/null || true
+	@sleep 1
 	@echo "Cleaning build directory..."
 	@rm -rf AltTab/build
+	@rm -rf ~/Library/Developer/Xcode/DerivedData/AltTab-* 2>/dev/null || true
 	@echo "Done. Run 'make run-debug' next."
