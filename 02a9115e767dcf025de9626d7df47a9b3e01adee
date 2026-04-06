@@ -1,0 +1,36 @@
+Makefile
+  c9a7635429fddd47 50-59
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "02a9115e767dcf025de9626d7df47a9b3e01adee",
+  "prompts": {
+    "c9a7635429fddd47": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "895f3730-2d5a-4c95-ae4b-6970dc4097ca",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 49,
+      "total_deletions": 8,
+      "accepted_lines": 49,
+      "overriden_lines": 0
+    },
+    "e70f29501f0d4eaa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cd0ef427-be23-4b8d-b177-3a6fd5d909ce",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 5,
+      "overriden_lines": 0
+    }
+  }
+}
