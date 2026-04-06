@@ -1,0 +1,25 @@
+.planning/REQUIREMENTS.md
+  4c87f6674710ad29 1-117
+.planning/config.json
+  4c87f6674710ad29 1-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "e3122d320997971dc52e28670a6cb9508d307f00",
+  "prompts": {
+    "4c87f6674710ad29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c2cbb85c-9b0d-43fe-b727-f3d13cbd2f51",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 129,
+      "total_deletions": 0,
+      "accepted_lines": 129,
+      "overriden_lines": 0
+    }
+  }
+}
