@@ -1,0 +1,23 @@
+AltTab/AltTab/AppDelegate.swift
+  747e614907e3e2ff 5-7,10-11,20-32,46-61,63-81,128,131,135,139,143,147
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "229ca35fe742708f998832fcbbfe44195afc5b00",
+  "prompts": {
+    "747e614907e3e2ff": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6dc06cc4-f3b6-4445-bd6e-fce34c2e5390",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 226,
+      "total_deletions": 58,
+      "accepted_lines": 521,
+      "overriden_lines": 0
+    }
+  }
+}
