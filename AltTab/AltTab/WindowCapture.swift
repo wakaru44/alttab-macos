@@ -26,29 +26,22 @@ final class WindowCapture {
     /// Uses ScreenCaptureKit (macOS 14.0+) for modern, reliable window capture.
     /// System will prompt for Screen Recording permission on first use.
     func captureThumbnails(for windows: [WindowInfo], completion: @escaping ([WindowInfo]) -> Void) {
-        let captureEnabled = UserDefaults.standard.bool(forKey: "CaptureWindowScreenshots")
-        NSLog("WindowCapture: captureThumbnails called - captureEnabled=\(captureEnabled), windowCount=\(windows.count)")
+        NSLog("WindowCapture: captureThumbnails called - windowCount=\(windows.count)")
 
-        if captureEnabled {
-            // Apply cached thumbnails synchronously first
-            var windowsWithCache = windows
-            for (index, window) in windows.enumerated() where !window.isMinimized {
-                if let cachedThumbnail = cache.object(forKey: NSNumber(value: window.windowID)) {
-                    windowsWithCache[index].thumbnail = cachedThumbnail
-                }
+        // Apply cached thumbnails synchronously first
+        var windowsWithCache = windows
+        for (index, window) in windows.enumerated() where !window.isMinimized {
+            if let cachedThumbnail = cache.object(forKey: NSNumber(value: window.windowID)) {
+                windowsWithCache[index].thumbnail = cachedThumbnail
             }
+        }
 
-            // Return immediately with cached thumbnails (if any)
-            completion(windowsWithCache)
+        // Return immediately with cached thumbnails (if any)
+        completion(windowsWithCache)
 
-            // Then capture fresh thumbnails in background for cache misses
-            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-                self?.captureWithScreenCaptureKit(windows: windowsWithCache, completion: completion)
-            }
-        } else {
-            // No capture - return immediately with app icons
-            NSLog("WindowCapture: Screenshot capture disabled, returning app icons only")
-            completion(windows)
+        // Then capture fresh thumbnails in background for cache misses
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            self?.captureWithScreenCaptureKit(windows: windowsWithCache, completion: completion)
         }
     }
 

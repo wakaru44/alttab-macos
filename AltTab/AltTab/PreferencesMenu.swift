@@ -18,11 +18,18 @@ import ServiceManagement
 final class PreferencesMenu {
 
     let menu: NSMenu
-
-    static let screenshotCaptureEnabledKey = "CaptureWindowScreenshots"
+    var settingsWindowController: SettingsWindowController?
 
     init() {
         menu = NSMenu()
+
+        let settingsItem = NSMenuItem(title: "Settings...",
+                                      action: #selector(showSettings(_:)),
+                                      keyEquivalent: ",")
+        settingsItem.target = self
+        menu.addItem(settingsItem)
+
+        menu.addItem(NSMenuItem.separator())
 
         let launchItem = NSMenuItem(title: "Launch at Login",
                                     action: #selector(toggleLaunchAtLogin(_:)),
@@ -30,15 +37,6 @@ final class PreferencesMenu {
         launchItem.target = self
         launchItem.state = Self.isLaunchAtLoginEnabled ? .on : .off
         menu.addItem(launchItem)
-
-        menu.addItem(NSMenuItem.separator())
-
-        let screenshotItem = NSMenuItem(title: "Capture Window Screenshots",
-                                        action: #selector(toggleScreenshotCapture(_:)),
-                                        keyEquivalent: "")
-        screenshotItem.target = self
-        screenshotItem.state = UserDefaults.standard.bool(forKey: Self.screenshotCaptureEnabledKey) ? .on : .off
-        menu.addItem(screenshotItem)
 
         menu.addItem(NSMenuItem.separator())
 
@@ -85,22 +83,17 @@ final class PreferencesMenu {
         }
     }
 
-    // MARK: - Screenshot Capture
+    // MARK: - Settings
 
-    @objc private func toggleScreenshotCapture(_ sender: NSMenuItem) {
-        let currentValue = UserDefaults.standard.bool(forKey: Self.screenshotCaptureEnabledKey)
-        let newValue = !currentValue
-
-        UserDefaults.standard.set(newValue, forKey: Self.screenshotCaptureEnabledKey)
-        sender.state = newValue ? .on : .off
-
-        if newValue {
-            let alert = NSAlert()
-            alert.messageText = "Screenshot Capture Enabled"
-            alert.informativeText = "macOS may prompt for Screen Recording permission.\n\nNote: On macOS 15+, you may see this prompt again when the app is rebuilt."
-            alert.alertStyle = .informational
-            alert.runModal()
+    @objc private func showSettings(_ sender: NSMenuItem) {
+        NSLog("PreferencesMenu: Opening Settings window...")
+        if settingsWindowController == nil {
+            settingsWindowController = SettingsWindowController()
+            NSLog("PreferencesMenu: Created new SettingsWindowController")
         }
+        settingsWindowController?.showWindow(nil)
+        NSApp.activate(ignoringOtherApps: true)
+        NSLog("PreferencesMenu: Settings window shown")
     }
 
     @objc private func showAbout(_ sender: NSMenuItem) {

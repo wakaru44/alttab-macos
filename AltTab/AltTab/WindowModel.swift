@@ -68,11 +68,13 @@ final class WindowModel {
         // 1. On-screen windows from CGWindowList
         if let infoList = CGWindowListCopyWindowInfo([.optionOnScreenOnly, .excludeDesktopElements],
                                                       kCGNullWindowID) as? [[String: Any]] {
+            NSLog("WindowModel: Found \(infoList.count) windows from CGWindowList")
             for info in infoList {
                 guard let window = parseWindowInfo(info, isMinimized: false) else { continue }
                 if seenIDs.contains(window.windowID) { continue }
                 seenIDs.insert(window.windowID)
                 windows.append(window)
+                NSLog("WindowModel: Added window - \(window.ownerName): \(window.windowTitle) (ID: \(window.windowID))")
             }
         }
 
@@ -115,7 +117,9 @@ final class WindowModel {
         }
 
         // 3. Remove our own windows
+        let beforeRemoval = windows.count
         windows.removeAll { $0.ownerName == "AltTab" || $0.ownerPID == ProcessInfo.processInfo.processIdentifier }
+        NSLog("WindowModel: Removed \(beforeRemoval - windows.count) AltTab windows, \(windows.count) remaining")
 
         // 4. Sort by MRU
         pruneMRU(validIDs: Set(windows.map { $0.windowID }))
@@ -123,6 +127,11 @@ final class WindowModel {
             let idxA = mruOrder.firstIndex(of: a.windowID) ?? Int.max
             let idxB = mruOrder.firstIndex(of: b.windowID) ?? Int.max
             return idxA < idxB
+        }
+
+        NSLog("WindowModel: Final window list (\(windows.count) windows):")
+        for (idx, w) in windows.enumerated() {
+            NSLog("  [\(idx)] \(w.ownerName): \(w.windowTitle) - minimized:\(w.isMinimized)")
         }
 
         return windows
