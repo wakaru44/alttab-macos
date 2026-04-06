@@ -31,10 +31,13 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. Views depend only on ViewModels, ViewModels depend only on Services (clear layer separation)
   5. MRU order updates immediately when user switches windows or apps, reflecting accurate real-time state
   6. Window focus changes, creation, destruction, and app activation events tracked via AXObserver and NSWorkspace
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 01-01: TBD during planning
+- [ ] 01-01-PLAN.md — Define protocol abstractions and create AccessibilityService, WindowEnumerationService, ThumbnailRepository
+- [ ] 01-02-PLAN.md — Extract MRUTracker and WindowTracker with AXObserver/NSWorkspace tracking
+- [ ] 01-03-PLAN.md — Refactor WindowCapture/WindowActivator to protocol DI, create SwitcherViewModel
+- [ ] 01-04-PLAN.md — Wire DI composition root in AppDelegate, remove WindowModel god object
 
 ### Phase 2: Testing Infrastructure
 **Goal**: Establish comprehensive test coverage with mocked system APIs enabling confident refactoring
@@ -105,7 +108,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Architecture Foundation | 0/TBD | Not started | - |
+| 1. Architecture Foundation | 0/4 | Planned | - |
 | 2. Testing Infrastructure | 0/TBD | Not started | - |
 | 3. Quality Assurance | 0/TBD | Not started | - |
 | 4. Documentation | 0/TBD | Not started | - |
