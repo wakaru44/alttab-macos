@@ -17,10 +17,16 @@ help: ##@Helper Display all commands and descriptions
 build: ##@App Build the app (Release)
 	./build.sh build
 
+build-release: build ##@App Build the app (Release - alias)
+
 build-debug: ##@App Build the app (Debug)
 	@echo "Building AltTab (Debug)..."
 	cd AltTab && xcodebuild -project AltTab.xcodeproj -scheme AltTab -configuration Debug -derivedDataPath build clean build 2>&1 | grep -E 'error:|SUCCEEDED' || true
 	@echo "Debug build complete: AltTab/build/Build/Products/Debug/AltTab.app"
+
+test: ##@Testing Run unit tests
+	@echo "Running unit tests..."
+	cd AltTab && xcodebuild test -project AltTab.xcodeproj -scheme AltTab -configuration Debug -destination 'platform=macOS' 2>&1 | grep -E 'Test Suite|Test Case|error:|FAILED|SUCCEEDED' || true
 
 install: ##@App Install the app
 	./build.sh install
@@ -28,6 +34,8 @@ install: ##@App Install the app
 run: ##@App Run the app (Release)
 	@echo "Launching AltTab..."
 	open "AltTab/build/Build/Products/Release/AltTab.app"
+
+run-release: run ##@App Run the app (Release - alias)
 
 run-debug: build-debug ##@App Run in debug mode with logging
 	@echo "Stopping any running instances..."

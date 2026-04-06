@@ -7,13 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FE233A5F962A4750821BAE1F /* SwitcherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */; };
-		BA1010104 /* ThumbnailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010104 /* ThumbnailRepository.swift */; };
-		BA1010103 /* WindowEnumerationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010103 /* WindowEnumerationService.swift */; };
-		BA1010102 /* AccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010102 /* AccessibilityService.swift */; };
-		BA1010101 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010101 /* Protocols.swift */; };
-		D6D4F592F5514633 /* MRUTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9159495798A4356 /* MRUTracker.swift */; };
-		F8E9B2A3D5C14E18 /* WindowTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F8A3B4C6D24F29 /* WindowTracker.swift */; };
 		A10000010000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000001 /* AppDelegate.swift */; };
 		A10000020000000000000002 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000020000000000000002 /* HotkeyManager.swift */; };
 		A10000030000000000000003 /* WindowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000030000000000000003 /* WindowModel.swift */; };
@@ -25,17 +18,22 @@
 		A10000090000000000000009 /* PreferencesMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000090000000000000009 /* PreferencesMenu.swift */; };
 		A1000010000000000000000A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2000010000000000000000A /* Assets.xcassets */; };
 		A100001100000000000000B0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200001300000000000000B0 /* main.swift */; };
+		BA1010101 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010101 /* Protocols.swift */; };
+		BA1010102 /* AccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010102 /* AccessibilityService.swift */; };
+		BA1010103 /* WindowEnumerationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010103 /* WindowEnumerationService.swift */; };
+		BA1010104 /* ThumbnailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010104 /* ThumbnailRepository.swift */; };
 		BF2BA1C12F83D59D005B9BE3 /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2BA1C02F83D59D005B9BE3 /* SettingsWindow.swift */; };
+		BF2BA1C32F847A63005B9BE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2BA1C22F847A63005B9BE3 /* AppDelegate.swift */; };
+		D6D4F592F5514633 /* MRUTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9159495798A4356 /* MRUTracker.swift */; };
+		F8E9B2A3D5C14E18 /* WindowTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F8A3B4C6D24F29 /* WindowTracker.swift */; };
+		FE233A5F962A4750821BAE1F /* SwitcherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitcherViewModel.swift; sourceTree = "<group>"; };
-		A1010104 /* ThumbnailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailRepository.swift; sourceTree = "<group>"; };
-		A1010103 /* WindowEnumerationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowEnumerationService.swift; sourceTree = "<group>"; };
-		A1010102 /* AccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityService.swift; sourceTree = "<group>"; };
 		A1010101 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		C9159495798A4356 /* MRUTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRUTracker.swift; sourceTree = "<group>"; };
-		E7F8A3B4C6D24F29 /* WindowTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTracker.swift; sourceTree = "<group>"; };
+		A1010102 /* AccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityService.swift; sourceTree = "<group>"; };
+		A1010103 /* WindowEnumerationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowEnumerationService.swift; sourceTree = "<group>"; };
+		A1010104 /* ThumbnailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailRepository.swift; sourceTree = "<group>"; };
 		A20000010000000000000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A20000020000000000000002 /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
 		A20000030000000000000003 /* WindowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowModel.swift; sourceTree = "<group>"; };
@@ -51,6 +49,10 @@
 		A200001300000000000000B0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A3000001000000000000000D /* AltTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AltTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF2BA1C02F83D59D005B9BE3 /* SettingsWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindow.swift; sourceTree = "<group>"; };
+		BF2BA1C22F847A63005B9BE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C9159495798A4356 /* MRUTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRUTracker.swift; sourceTree = "<group>"; };
+		D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitcherViewModel.swift; sourceTree = "<group>"; };
+		E7F8A3B4C6D24F29 /* WindowTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTracker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,9 +77,9 @@
 		A50000020000000000000002 /* AltTab */ = {
 			isa = PBXGroup;
 			children = (
+				BF2BA1C22F847A63005B9BE3 /* AppDelegate.swift */,
 				BF2BA1C02F83D59D005B9BE3 /* SettingsWindow.swift */,
 				A20000010000000000000001 /* AppDelegate.swift */,
-				
 				A1010101 /* Protocols.swift */,
 				A1010102 /* AccessibilityService.swift */,
 				A1010103 /* WindowEnumerationService.swift */,
@@ -96,8 +98,8 @@
 				A2000010000000000000000A /* Assets.xcassets */,
 				A2000011000000000000000B /* Info.plist */,
 				A2000012000000000000000C /* AltTab.entitlements */,
-							D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */,
-);
+				D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */,
+			);
 			path = AltTab;
 			sourceTree = "<group>";
 		};
@@ -180,7 +182,7 @@
 			files = (
 				BF2BA1C12F83D59D005B9BE3 /* SettingsWindow.swift in Sources */,
 				A10000010000000000000001 /* AppDelegate.swift in Sources */,
-				
+				BF2BA1C32F847A63005B9BE3 /* AppDelegate.swift in Sources */,
 				BA1010101 /* Protocols.swift in Sources */,
 				BA1010102 /* AccessibilityService.swift in Sources */,
 				BA1010103 /* WindowEnumerationService.swift in Sources */,
@@ -196,8 +198,8 @@
 				A10000080000000000000008 /* PermissionManager.swift in Sources */,
 				A10000090000000000000009 /* PreferencesMenu.swift in Sources */,
 				A100001100000000000000B0 /* main.swift in Sources */,
-							FE233A5F962A4750821BAE1F /* SwitcherViewModel.swift in Sources */,
-);
+				FE233A5F962A4750821BAE1F /* SwitcherViewModel.swift in Sources */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
