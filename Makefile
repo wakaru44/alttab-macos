@@ -1,0 +1,50 @@
+help: ##@Helper Display all commands and descriptions
+	@printf "\n"
+	@awk 'BEGIN {FS = ":.*##@"} \
+	/^[.a-zA-Z_-]+:.*?##@/ { \
+		split($$2, parts, " "); \
+		section = parts[1]; \
+		description = substr($$2, length(section) + 2); \
+		sections[section] = sections[section] sprintf("\033[36m%-15s\033[0m %s\n", $$1, description); \
+	} \
+	END { \
+		for (section in sections) { \
+			printf "\033[1m%s\033[0m\n", section; \
+			printf "%s\n", sections[section]; \
+		} \
+	}' $(MAKEFILE_LIST)
+
+build: ##@App Build the app (Release)
+	./build.sh build
+
+build-debug: ##@App Build the app (Debug)
+	@echo "Building AltTab (Debug)..."
+	cd AltTab && xcodebuild -scheme AltTab -configuration Debug -derivedDataPath build build 2>&1 | tail -5
+	@echo "Debug build complete: AltTab/build/Build/Products/Debug/AltTab.app"
+
+install: ##@App Install the app
+	./build.sh install
+
+run: ##@App Run the app (Release)
+	@echo "Launching AltTab..."
+	open "AltTab/build/Build/Products/Release/AltTab.app"
+
+run-debug: build-debug ##@App Run in debug mode with logging
+	@echo "Stopping any running instances..."
+	@pkill -9 AltTab 2>/dev/null || true
+	@sleep 0.5
+	@rm -f /tmp/alttab-debug.log
+	@echo "Starting AltTab in debug mode (logging to /tmp/alttab-debug.log)..."
+	@echo "Press Ctrl+C to stop tailing (app will keep running)"
+	@AltTab/build/Build/Products/Debug/AltTab.app/Contents/MacOS/AltTab > /tmp/alttab-debug.log 2>&1 &
+	@echo "AltTab started (PID: $$!). Logs: /tmp/alttab-debug.log"
+	@sleep 1
+	@tail -f /tmp/alttab-debug.log
+
+logs: ##@Debug Show debug logs
+	@tail -f /tmp/alttab-debug.log
+
+clean: ##@App Clean build artifacts
+	./build.sh clean
+
+
