@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A10000010000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000001; };
-		A10000020000000000000002 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000020000000000000002; };
-		A10000030000000000000003 /* WindowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000030000000000000003; };
-		A10000040000000000000004 /* WindowCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000040000000000000004; };
-		A10000050000000000000005 /* SwitcherPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000050000000000000005; };
-		A10000060000000000000006 /* ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000060000000000000006; };
-		A10000070000000000000007 /* WindowActivator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000070000000000000007; };
-		A10000080000000000000008 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000080000000000000008; };
-		A10000090000000000000009 /* PreferencesMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000090000000000000009; };
-		A1000010000000000000000A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2000010000000000000000A; };
-		A100001100000000000000B0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200001300000000000000B0; };
+		A10000010000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000001 /* AppDelegate.swift */; };
+		A10000020000000000000002 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000020000000000000002 /* HotkeyManager.swift */; };
+		A10000030000000000000003 /* WindowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000030000000000000003 /* WindowModel.swift */; };
+		A10000040000000000000004 /* WindowCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000040000000000000004 /* WindowCapture.swift */; };
+		A10000050000000000000005 /* SwitcherPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000050000000000000005 /* SwitcherPanel.swift */; };
+		A10000060000000000000006 /* ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000060000000000000006 /* ThumbnailView.swift */; };
+		A10000070000000000000007 /* WindowActivator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000070000000000000007 /* WindowActivator.swift */; };
+		A10000080000000000000008 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000080000000000000008 /* PermissionManager.swift */; };
+		A10000090000000000000009 /* PreferencesMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000090000000000000009 /* PreferencesMenu.swift */; };
+		A1000010000000000000000A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2000010000000000000000A /* Assets.xcassets */; };
+		A100001100000000000000B0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200001300000000000000B0 /* main.swift */; };
+		BF2BA1C12F83D59D005B9BE3 /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2BA1C02F83D59D005B9BE3 /* SettingsWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		A2000012000000000000000C /* AltTab.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AltTab.entitlements; sourceTree = "<group>"; };
 		A200001300000000000000B0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A3000001000000000000000D /* AltTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AltTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF2BA1C02F83D59D005B9BE3 /* SettingsWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		A50000020000000000000002 /* AltTab */ = {
 			isa = PBXGroup;
 			children = (
+				BF2BA1C02F83D59D005B9BE3 /* SettingsWindow.swift */,
 				A20000010000000000000001 /* AppDelegate.swift */,
 				A20000020000000000000002 /* HotkeyManager.swift */,
 				A20000030000000000000003 /* WindowModel.swift */,
@@ -153,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF2BA1C12F83D59D005B9BE3 /* SettingsWindow.swift in Sources */,
 				A10000010000000000000001 /* AppDelegate.swift in Sources */,
 				A10000020000000000000002 /* HotkeyManager.swift in Sources */,
 				A10000030000000000000003 /* WindowModel.swift in Sources */,
@@ -353,7 +357,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
 	};
 	rootObject = A90000010000000000000001 /* Project object */;
 }
