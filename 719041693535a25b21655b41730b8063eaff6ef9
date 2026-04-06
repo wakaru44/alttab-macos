@@ -1,0 +1,23 @@
+AltTab/AltTab/WindowModel.swift
+  4c87f6674710ad29 124,127-131
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "719041693535a25b21655b41730b8063eaff6ef9",
+  "prompts": {
+    "4c87f6674710ad29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c2cbb85c-9b0d-43fe-b727-f3d13cbd2f51",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 6,
+      "total_deletions": 1,
+      "accepted_lines": 6,
+      "overriden_lines": 0
+    }
+  }
+}
