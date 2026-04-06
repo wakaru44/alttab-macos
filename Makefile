@@ -14,18 +14,37 @@ help: ##@Helper Display all commands and descriptions
 		} \
 	}' $(MAKEFILE_LIST)
 
-build: ##@App Build the app
-	./build.sh run
+build: ##@App Build the app (Release)
+	./build.sh build
 
-install: ##@App install the app
+build-debug: ##@App Build the app (Debug)
+	@echo "Building AltTab (Debug)..."
+	cd AltTab && xcodebuild -scheme AltTab -configuration Debug -derivedDataPath build build 2>&1 | tail -5
+	@echo "Debug build complete: AltTab/build/Build/Products/Debug/AltTab.app"
+
+install: ##@App Install the app
 	./build.sh install
 
-run: ##@App Run the app
-	@echo "Launching ${APP_NAME}..."
+run: ##@App Run the app (Release)
+	@echo "Launching AltTab..."
 	open "AltTab/build/Build/Products/Release/AltTab.app"
-	#./build.sh run
 
-clean: ##@App clean the app
+run-debug: build-debug ##@App Run in debug mode with logging
+	@echo "Stopping any running instances..."
+	@pkill -9 AltTab 2>/dev/null || true
+	@sleep 0.5
+	@rm -f /tmp/alttab-debug.log
+	@echo "Starting AltTab in debug mode (logging to /tmp/alttab-debug.log)..."
+	@echo "Press Ctrl+C to stop tailing (app will keep running)"
+	@AltTab/build/Build/Products/Debug/AltTab.app/Contents/MacOS/AltTab > /tmp/alttab-debug.log 2>&1 &
+	@echo "AltTab started (PID: $$!). Logs: /tmp/alttab-debug.log"
+	@sleep 1
+	@tail -f /tmp/alttab-debug.log
+
+logs: ##@Debug Show debug logs
+	@tail -f /tmp/alttab-debug.log
+
+clean: ##@App Clean build artifacts
 	./build.sh clean
 
 
