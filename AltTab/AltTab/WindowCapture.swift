@@ -1,37 +1,23 @@
-//
-//  WindowCapture.swift
-//  AltTab — Windows-style Window Switcher for macOS
-//
-//  Modern window thumbnail capture using ScreenCaptureKit.
-//  Requires macOS 14.0+ (Sonoma). Falls back to app icons on capture failure.
-//
-//  Author:  Sergio Farfan <sergio.farfan@gmail.com>
-//  Version: 1.1.0
-//  Date:    2026-03-17
-//  License: MIT
-//
-
 import Cocoa
 import ScreenCaptureKit
 
-final class WindowCapture {
+final class WindowCapture: ThumbnailCapturing {
 
     private let thumbnailMaxWidth: CGFloat = 320
     private let thumbnailMaxHeight: CGFloat = 200
-    private let cache = NSCache<NSNumber, NSImage>()
+    private let thumbnailCache: ThumbnailCaching
 
-    /// Captures thumbnails for all windows asynchronously.
-    /// Calls completion on main thread with updated WindowInfo array.
-    ///
-    /// Uses ScreenCaptureKit (macOS 14.0+) for modern, reliable window capture.
-    /// System will prompt for Screen Recording permission on first use.
+    init(thumbnailCache: ThumbnailCaching) {
+        self.thumbnailCache = thumbnailCache
+    }
+
     func captureThumbnails(for windows: [WindowInfo], completion: @escaping ([WindowInfo]) -> Void) {
         NSLog("WindowCapture: captureThumbnails called - windowCount=\(windows.count)")
 
         // Apply cached thumbnails synchronously first
         var windowsWithCache = windows
         for (index, window) in windows.enumerated() where !window.isMinimized {
-            if let cachedThumbnail = cache.object(forKey: NSNumber(value: window.windowID)) {
+            if let cachedThumbnail = thumbnailCache.thumbnail(for: window.windowID) {
                 windowsWithCache[index].thumbnail = cachedThumbnail
             }
         }
@@ -66,7 +52,7 @@ final class WindowCapture {
                 // Capture fresh thumbnails only for windows not already in cache
                 for (index, window) in windows.enumerated() where !window.isMinimized {
                     // Skip if already have cached thumbnail
-                    if cache.object(forKey: NSNumber(value: window.windowID)) != nil {
+                    if thumbnailCache.thumbnail(for: window.windowID) != nil {
                         NSLog("WindowCapture: Window \(window.windowID) already cached, skipping")
                         continue
                     }
@@ -79,7 +65,7 @@ final class WindowCapture {
                     do {
                         NSLog("WindowCapture: Capturing window \(window.windowID)...")
                         let thumbnail = try await captureWindow(scWindow)
-                        cache.setObject(thumbnail, forKey: NSNumber(value: window.windowID))
+                        thumbnailCache.store(thumbnail: thumbnail, for: window.windowID)
                         updatedWindows[index].thumbnail = thumbnail
                         NSLog("WindowCapture: Successfully captured window \(window.windowID)")
                     } catch {
