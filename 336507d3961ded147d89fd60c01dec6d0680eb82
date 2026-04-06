@@ -1,0 +1,44 @@
+CHANGELOG.md
+  c9a7635429fddd47 12
+Makefile
+  c9a7635429fddd47 22
+README.md
+  c9a7635429fddd47 2,25,49,105
+AltTab/AltTab.xcodeproj/project.pbxproj
+  c9a7635429fddd47 224,280
+AltTab/AltTab/WindowCapture.swift
+  c9a7635429fddd47 6,26,30,39,50,55,57,63-66,69,73
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "336507d3961ded147d89fd60c01dec6d0680eb82",
+  "prompts": {
+    "c9a7635429fddd47": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "895f3730-2d5a-4c95-ae4b-6970dc4097ca",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 33,
+      "total_deletions": 25,
+      "accepted_lines": 24,
+      "overriden_lines": 0
+    },
+    "e70f29501f0d4eaa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cd0ef427-be23-4b8d-b177-3a6fd5d909ce",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 5,
+      "overriden_lines": 0
+    }
+  }
+}
