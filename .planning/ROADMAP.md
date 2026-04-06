@@ -34,10 +34,10 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 4 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Define protocol abstractions and create AccessibilityService, WindowEnumerationService, ThumbnailRepository
-- [ ] 01-02-PLAN.md — Extract MRUTracker and WindowTracker with AXObserver/NSWorkspace tracking
-- [ ] 01-03-PLAN.md — Refactor WindowCapture/WindowActivator to protocol DI, create SwitcherViewModel
-- [ ] 01-04-PLAN.md — Wire DI composition root in AppDelegate, remove WindowModel god object
+- [x] 01-01-PLAN.md — Define protocol abstractions and create AccessibilityService, WindowEnumerationService, ThumbnailRepository
+- [x] 01-02-PLAN.md — Extract MRUTracker and WindowTracker with AXObserver/NSWorkspace tracking
+- [x] 01-03-PLAN.md — Refactor WindowCapture/WindowActivator to protocol DI, create SwitcherViewModel
+- [x] 01-04-PLAN.md — Wire DI composition root in AppDelegate, remove WindowModel god object
 
 ### Phase 2: Testing Infrastructure
 **Goal**: Establish comprehensive test coverage with mocked system APIs enabling confident refactoring
