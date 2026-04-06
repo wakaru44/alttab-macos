@@ -61,25 +61,25 @@ final class WindowCapture {
 
                 for (index, window) in windows.enumerated() where !window.isMinimized {
                     guard let scWindow = scWindowMap[window.windowID] else {
-                        logger.debug("Window \(window.windowID) not found in shareable content")
+                        NSLog("WindowCapture: Window \(window.windowID) not found in shareable content")
                         continue
                     }
 
                     do {
-                        logger.debug("Capturing window \(window.windowID)...")
+                        NSLog("WindowCapture: Capturing window \(window.windowID)...")
                         let thumbnail = try await captureWindow(scWindow)
                         cache.setObject(thumbnail, forKey: NSNumber(value: window.windowID))
                         updatedWindows[index].thumbnail = thumbnail
-                        logger.debug("Successfully captured window \(window.windowID)")
+                        NSLog("WindowCapture: Successfully captured window \(window.windowID)")
                     } catch {
-                        logger.warning("Failed to capture window \(window.windowID): \(error.localizedDescription)")
+                        NSLog("WindowCapture: Failed to capture window \(window.windowID): \(error.localizedDescription)")
                     }
                 }
             } catch {
-                logger.error("Failed to get shareable content: \(error.localizedDescription)")
+                NSLog("WindowCapture: ERROR - Failed to get shareable content: \(error.localizedDescription)")
             }
 
-            logger.debug("Capture complete, calling completion handler")
+            NSLog("WindowCapture: Capture complete, calling completion handler")
             DispatchQueue.main.async {
                 completion(updatedWindows)
             }

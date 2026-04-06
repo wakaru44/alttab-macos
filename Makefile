@@ -47,4 +47,6 @@ logs: ##@Debug Show debug logs
 clean: ##@App Clean build artifacts
 	./build.sh clean
 
-
+reset-perms: ##@Debug Reset permissions
+	tccutil reset ScreenCapture com.alttab.app
+	tccutil reset Accessibility com.alttab.app
