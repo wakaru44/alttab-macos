@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- **BREAKING**: Minimum macOS version raised to 13.2+ (Ventura) from 13.0
+- **BREAKING**: Minimum macOS version raised to 14.0+ (Sonoma) from 13.0
 - Migrated window thumbnail capture from deprecated `CGWindowListCreateImage` to modern `ScreenCaptureKit` (`SCScreenshotManager`)
 - Window screenshots now work reliably on macOS 15 (Sequoia) and all future macOS versions
 - Added proper error logging via `os.log` for capture diagnostics

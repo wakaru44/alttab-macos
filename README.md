@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/platform-macOS_13.2%2B-000000?style=flat-square&logo=apple&logoColor=white" alt="macOS 13.2+">
+  <img src="https://img.shields.io/badge/platform-macOS_14%2B-000000?style=flat-square&logo=apple&logoColor=white" alt="macOS 14+">
   <img src="https://img.shields.io/badge/swift-5.9%2B-F05138?style=flat-square&logo=swift&logoColor=white" alt="Swift 5.9+">
   <img src="https://img.shields.io/github/license/sergio-farfan/alttab-macos?style=flat-square" alt="MIT License">
   <img src="https://img.shields.io/github/v/release/sergio-farfan/alttab-macos?style=flat-square&label=version" alt="Version">
@@ -22,7 +22,7 @@ macOS Cmd-Tab switches between *applications*. AltTab switches between *windows*
 - **Shift-Tab** / Arrow keys to navigate in reverse
 - **Escape** to cancel without switching
 - Window titles via Accessibility API — works for all apps
-- Optional window thumbnails via ScreenCaptureKit (modern, reliable capture on macOS 13.2+)
+- Optional window thumbnails via ScreenCaptureKit (modern, reliable capture on macOS 14.0+)
 - App icon display with graceful fallback
 - Includes minimized windows
 - MRU (most recently used) ordering with intra-app focus tracking
@@ -46,7 +46,7 @@ Then grant **Accessibility** permission when prompted (System Settings → Priva
 
 | Requirement | Details |
 |-------------|---------|
-| **macOS** | 13.2+ (Ventura, Sonoma, Sequoia) |
+| **macOS** | 14.0+ (Sonoma, Sequoia) |
 | **Xcode** | Full install from App Store (not just Command Line Tools) |
 
 <details>
@@ -102,7 +102,7 @@ On first launch, AltTab will prompt for Accessibility access. Screen Recording i
 
 Grant in: **System Settings → Privacy & Security → Accessibility** (and optionally **Screen Recording**)
 
-> **Note:** Screen Recording permission is **optional**. By default, AltTab displays app icons. Enable "Capture Window Screenshots" in the menu bar to use live thumbnails powered by ScreenCaptureKit (macOS 13.2+).
+> **Note:** Screen Recording permission is **optional**. By default, AltTab displays app icons. Enable "Capture Window Screenshots" in the menu bar to use live thumbnails powered by ScreenCaptureKit (macOS 14.0+).
 
 ## Usage
 

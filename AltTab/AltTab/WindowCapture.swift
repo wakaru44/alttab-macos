@@ -3,7 +3,7 @@
 //  AltTab — Windows-style Window Switcher for macOS
 //
 //  Modern window thumbnail capture using ScreenCaptureKit.
-//  Requires macOS 13.2+ (Ventura). Falls back to app icons on capture failure.
+//  Requires macOS 14.0+ (Sonoma). Falls back to app icons on capture failure.
 //
 //  Author:  Sergio Farfan <sergio.farfan@gmail.com>
 //  Version: 1.1.0
@@ -13,22 +13,21 @@
 
 import Cocoa
 import ScreenCaptureKit
-import os.log
 
 final class WindowCapture {
 
     private let thumbnailMaxWidth: CGFloat = 320
     private let thumbnailMaxHeight: CGFloat = 200
     private let cache = NSCache<NSNumber, NSImage>()
-    private let logger = Logger(subsystem: "com.alttab.app", category: "WindowCapture")
 
     /// Captures thumbnails for all windows asynchronously.
     /// Calls completion on main thread with updated WindowInfo array.
     ///
-    /// Uses ScreenCaptureKit (macOS 13.2+) for modern, reliable window capture.
+    /// Uses ScreenCaptureKit (macOS 14.0+) for modern, reliable window capture.
     /// System will prompt for Screen Recording permission on first use.
     func captureThumbnails(for windows: [WindowInfo], completion: @escaping ([WindowInfo]) -> Void) {
         let captureEnabled = UserDefaults.standard.bool(forKey: "CaptureWindowScreenshots")
+        NSLog("WindowCapture: captureThumbnails called - captureEnabled=\(captureEnabled), windowCount=\(windows.count)")
 
         if captureEnabled {
             // Capture on background thread to avoid blocking UI
@@ -37,6 +36,7 @@ final class WindowCapture {
             }
         } else {
             // No capture - return immediately with app icons
+            NSLog("WindowCapture: Screenshot capture disabled, returning app icons only")
             completion(windows)
         }
     }
@@ -47,22 +47,30 @@ final class WindowCapture {
         windows: [WindowInfo],
         completion: @escaping ([WindowInfo]) -> Void
     ) {
+        NSLog("WindowCapture: captureWithScreenCaptureKit starting...")
         Task {
             var updatedWindows = windows
 
             do {
+                NSLog("WindowCapture: Requesting SCShareableContent...")
                 let content = try await SCShareableContent.current
+                NSLog("WindowCapture: Got \(content.windows.count) shareable windows")
                 let scWindowMap = Dictionary(uniqueKeysWithValues:
                     content.windows.map { ($0.windowID, $0) }
                 )
 
                 for (index, window) in windows.enumerated() where !window.isMinimized {
-                    guard let scWindow = scWindowMap[window.windowID] else { continue }
+                    guard let scWindow = scWindowMap[window.windowID] else {
+                        logger.debug("Window \(window.windowID) not found in shareable content")
+                        continue
+                    }
 
                     do {
+                        logger.debug("Capturing window \(window.windowID)...")
                         let thumbnail = try await captureWindow(scWindow)
                         cache.setObject(thumbnail, forKey: NSNumber(value: window.windowID))
                         updatedWindows[index].thumbnail = thumbnail
+                        logger.debug("Successfully captured window \(window.windowID)")
                     } catch {
                         logger.warning("Failed to capture window \(window.windowID): \(error.localizedDescription)")
                     }
@@ -71,6 +79,7 @@ final class WindowCapture {
                 logger.error("Failed to get shareable content: \(error.localizedDescription)")
             }
 
+            logger.debug("Capture complete, calling completion handler")
             DispatchQueue.main.async {
                 completion(updatedWindows)
             }

@@ -19,7 +19,7 @@ build: ##@App Build the app (Release)
 
 build-debug: ##@App Build the app (Debug)
 	@echo "Building AltTab (Debug)..."
-	cd AltTab && xcodebuild -scheme AltTab -configuration Debug -derivedDataPath build build 2>&1 | tail -5
+	cd AltTab && xcodebuild -project AltTab.xcodeproj -scheme AltTab -configuration Debug -derivedDataPath build clean build 2>&1 | grep -E 'error:|SUCCEEDED' || true
 	@echo "Debug build complete: AltTab/build/Build/Products/Debug/AltTab.app"
 
 install: ##@App Install the app
