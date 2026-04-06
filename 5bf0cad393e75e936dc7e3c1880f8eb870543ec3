@@ -1,0 +1,27 @@
+.planning/ROADMAP.md
+  4c87f6674710ad29 1-112
+.planning/STATE.md
+  4c87f6674710ad29 1-69
+.planning/REQUIREMENTS.md
+  4c87f6674710ad29 106-164,168-176,180
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "5bf0cad393e75e936dc7e3c1880f8eb870543ec3",
+  "prompts": {
+    "4c87f6674710ad29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c2cbb85c-9b0d-43fe-b727-f3d13cbd2f51",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 250,
+      "total_deletions": 6,
+      "accepted_lines": 250,
+      "overriden_lines": 0
+    }
+  }
+}
