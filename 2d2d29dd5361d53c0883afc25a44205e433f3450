@@ -1,0 +1,29 @@
+AltTab/AltTabTests/Info.plist
+  0b3cac207237ba0a 1-22
+AltTab/AltTab.xcodeproj/xcshareddata/xcschemes/AltTab.xcscheme
+  0b3cac207237ba0a 32-43
+AltTab/AltTab.xcodeproj/project.pbxproj
+  0b3cac207237ba0a 30,33-41,67-69,80-86,94,132,137-143,166-183,213,227-233,263-270,273-279,444-491,513-521
+AltTab/AltTabTests/SanityTests.swift
+  0b3cac207237ba0a 1-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "2d2d29dd5361d53c0883afc25a44205e433f3450",
+  "prompts": {
+    "0b3cac207237ba0a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9414196e-8ce9-4180-a621-6b3f47dd4a3a",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 173,
+      "total_deletions": 0,
+      "accepted_lines": 173,
+      "overriden_lines": 0
+    }
+  }
+}
