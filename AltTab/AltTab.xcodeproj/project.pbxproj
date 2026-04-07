@@ -27,7 +27,18 @@
 		D6D4F592F5514633 /* MRUTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9159495798A4356 /* MRUTracker.swift */; };
 		F8E9B2A3D5C14E18 /* WindowTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F8A3B4C6D24F29 /* WindowTracker.swift */; };
 		FE233A5F962A4750821BAE1F /* SwitcherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */; };
+		TEST0001 /* SanityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0001 /* SanityTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		TESTPROXY0001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A90000010000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A60000010000000000000001;
+			remoteInfo = AltTab;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A1010101 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -53,10 +64,20 @@
 		C9159495798A4356 /* MRUTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRUTracker.swift; sourceTree = "<group>"; };
 		D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitcherViewModel.swift; sourceTree = "<group>"; };
 		E7F8A3B4C6D24F29 /* WindowTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTracker.swift; sourceTree = "<group>"; };
+		TESTBUNDLE0001 /* AltTabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AltTabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		TESTFILE0001 /* SanityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanityTests.swift; sourceTree = "<group>"; };
+		TESTINFO0001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A40000010000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		TESTFWK0001 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -70,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				A50000020000000000000002 /* AltTab */,
+				TESTGROUP0001 /* AltTabTests */,
 				A50000030000000000000003 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,8 +129,18 @@
 			isa = PBXGroup;
 			children = (
 				A3000001000000000000000D /* AltTab.app */,
+				TESTBUNDLE0001 /* AltTabTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		TESTGROUP0001 /* AltTabTests */ = {
+			isa = PBXGroup;
+			children = (
+				TESTFILE0001 /* SanityTests.swift */,
+				TESTINFO0001 /* Info.plist */,
+			);
+			path = AltTabTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +162,24 @@
 			productName = AltTab;
 			productReference = A3000001000000000000000D /* AltTab.app */;
 			productType = "com.apple.product-type.application";
+		};
+		TESTTARGET0001 /* AltTabTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = TESTCONFIG0001 /* Build configuration list for PBXNativeTarget "AltTabTests" */;
+			buildPhases = (
+				TESTSRC0001 /* Sources */,
+				TESTFWK0001 /* Frameworks */,
+				TESTRES0001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				TESTDEP0001 /* PBXTargetDependency */,
+			);
+			name = AltTabTests;
+			productName = AltTabTests;
+			productReference = TESTBUNDLE0001 /* AltTabTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -160,6 +210,7 @@
 			projectRoot = "";
 			targets = (
 				A60000010000000000000001 /* AltTab */,
+				TESTTARGET0001 /* AltTabTests */,
 			);
 		};
 /* End PBXProject section */
@@ -170,6 +221,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1000010000000000000000A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		TESTRES0001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +260,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		TESTSRC0001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				TEST0001 /* SanityTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		TESTDEP0001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A60000010000000000000001 /* AltTab */;
+			targetProxy = TESTPROXY0001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B10000010000000000000001 /* Debug */ = {
@@ -367,6 +441,54 @@
 			};
 			name = Release;
 		};
+		TESTDEBUG0001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = AltTabTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alttab.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AltTab.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AltTab";
+			};
+			name = Debug;
+		};
+		TESTRELEASE0001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = AltTabTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alttab.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AltTab.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AltTab";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -384,6 +506,15 @@
 			buildConfigurations = (
 				B10000010000000000000001 /* Debug */,
 				B10000020000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		TESTCONFIG0001 /* Build configuration list for PBXNativeTarget "AltTabTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				TESTDEBUG0001 /* Debug */,
+				TESTRELEASE0001 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
