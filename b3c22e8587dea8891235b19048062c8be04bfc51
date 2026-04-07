@@ -1,0 +1,23 @@
+AltTab/AltTabTests/Services/WindowEnumerationServiceTests.swift
+  0b3cac207237ba0a 1-74
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "b3c22e8587dea8891235b19048062c8be04bfc51",
+  "prompts": {
+    "0b3cac207237ba0a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9414196e-8ce9-4180-a621-6b3f47dd4a3a",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 265,
+      "overriden_lines": 0
+    }
+  }
+}
