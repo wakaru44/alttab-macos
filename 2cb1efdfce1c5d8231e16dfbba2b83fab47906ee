@@ -1,0 +1,44 @@
+.planning/ROADMAP.md
+  0b3cac207237ba0a 53,56-59,114-115
+.planning/phases/02-testing-infrastructure/02-01-PLAN.md
+  0b3cac207237ba0a 1-360
+.planning/phases/02-testing-infrastructure/02-04-PLAN.md
+  0b3cac207237ba0a 1-370
+.planning/phases/02-testing-infrastructure/02-03-PLAN.md
+  0b3cac207237ba0a 1-427
+.planning/phases/02-testing-infrastructure/02-02-PLAN.md
+  0b3cac207237ba0a 1-316
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "2cb1efdfce1c5d8231e16dfbba2b83fab47906ee",
+  "prompts": {
+    "0b3cac207237ba0a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9414196e-8ce9-4180-a621-6b3f47dd4a3a",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 1480,
+      "total_deletions": 4,
+      "accepted_lines": 1480,
+      "overriden_lines": 0
+    },
+    "14f712c3b90dac9e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5d3b447e-a4ac-4ebd-9494-8cd65033dd86",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 249,
+      "total_deletions": 0,
+      "accepted_lines": 249,
+      "overriden_lines": 0
+    }
+  }
+}
