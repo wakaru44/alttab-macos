@@ -1,0 +1,25 @@
+AltTab/AltTabTests/Services/MRUTrackerTests.swift
+  0b3cac207237ba0a 1-80
+AltTab/AltTab.xcodeproj/project.pbxproj
+  0b3cac207237ba0a 38-39,86-87,159,188-196,319-320
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "d0fab85206c93b4dcd97a27e9580a7b2018082d0",
+  "prompts": {
+    "0b3cac207237ba0a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9414196e-8ce9-4180-a621-6b3f47dd4a3a",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 361,
+      "total_deletions": 0,
+      "accepted_lines": 361,
+      "overriden_lines": 0
+    }
+  }
+}
