@@ -1,0 +1,23 @@
+Makefile
+  0b3cac207237ba0a 29,31-36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "a715327481cd34b95b40db07083c6241824ab2ef",
+  "prompts": {
+    "0b3cac207237ba0a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9414196e-8ce9-4180-a621-6b3f47dd4a3a",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 8,
+      "total_deletions": 1,
+      "accepted_lines": 586,
+      "overriden_lines": 0
+    }
+  }
+}
