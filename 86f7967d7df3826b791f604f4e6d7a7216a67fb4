@@ -1,0 +1,37 @@
+AltTab/AltTabTests/Mocks/MockWindowEnumerator.swift
+  0b3cac207237ba0a 1-11
+AltTab/AltTabTests/Mocks/MockThumbnailCapture.swift
+  0b3cac207237ba0a 1-14
+AltTab/AltTabTests/Helpers/WindowInfoFactory.swift
+  0b3cac207237ba0a 1-36
+AltTab/AltTabTests/Mocks/MockAccessibilityService.swift
+  0b3cac207237ba0a 1-62
+AltTab/AltTabTests/Mocks/MockThumbnailCache.swift
+  0b3cac207237ba0a 1-20
+AltTab/AltTabTests/Mocks/MockMRUTracker.swift
+  0b3cac207237ba0a 1-23
+AltTab/AltTabTests/Mocks/MockWindowTracker.swift
+  0b3cac207237ba0a 1-14
+AltTab/AltTab.xcodeproj/project.pbxproj
+  0b3cac207237ba0a 31-37,77-83,155-156,162-180,305-311
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "86f7967d7df3826b791f604f4e6d7a7216a67fb4",
+  "prompts": {
+    "0b3cac207237ba0a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9414196e-8ce9-4180-a621-6b3f47dd4a3a",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 224,
+      "total_deletions": 0,
+      "accepted_lines": 224,
+      "overriden_lines": 0
+    }
+  }
+}
