@@ -1,0 +1,25 @@
+AltTab/AltTabTests/Integration/EnumerationPipelineTests.swift
+  0b3cac207237ba0a 1-98
+AltTab/AltTabTests/Integration/WindowTrackingIntegrationTests.swift
+  0b3cac207237ba0a 1-91
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "2273e9ace794c93e423a459c95d1f80f0259f394",
+  "prompts": {
+    "0b3cac207237ba0a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9414196e-8ce9-4180-a621-6b3f47dd4a3a",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 401,
+      "total_deletions": 0,
+      "accepted_lines": 767,
+      "overriden_lines": 0
+    }
+  }
+}
