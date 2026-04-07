@@ -1,0 +1,25 @@
+.planning/phases/02-testing-infrastructure/02-CONTEXT.md
+  14f712c3b90dac9e 1-140
+.planning/phases/02-testing-infrastructure/02-DISCUSSION-LOG.md
+  14f712c3b90dac9e 1-109
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "b4b7e5c11c76aca90d44c132ef34a9010f1feb2c",
+  "prompts": {
+    "14f712c3b90dac9e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5d3b447e-a4ac-4ebd-9494-8cd65033dd86",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 249,
+      "overriden_lines": 0
+    }
+  }
+}
