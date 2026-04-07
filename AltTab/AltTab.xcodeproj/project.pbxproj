@@ -40,6 +40,8 @@
 		TEST0001 /* SanityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0001 /* SanityTests.swift */; };
 		TEST0002 /* MRUTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0002 /* MRUTrackerTests.swift */; };
 		TEST0003 /* WindowEnumerationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0003 /* WindowEnumerationServiceTests.swift */; };
+		TEST0004 /* WindowTrackingIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0004 /* WindowTrackingIntegrationTests.swift */; };
+		TEST0005 /* EnumerationPipelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0005 /* EnumerationPipelineTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		TESTFILE0001 /* SanityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanityTests.swift; sourceTree = "<group>"; };
 		TESTFILE0002 /* MRUTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRUTrackerTests.swift; sourceTree = "<group>"; };
 		TESTFILE0003 /* WindowEnumerationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowEnumerationServiceTests.swift; sourceTree = "<group>"; };
+		TESTFILE0004 /* WindowTrackingIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTrackingIntegrationTests.swift; sourceTree = "<group>"; };
+		TESTFILE0005 /* EnumerationPipelineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumerationPipelineTests.swift; sourceTree = "<group>"; };
 		TESTINFO0001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,6 +224,7 @@
 			children = (
 				TESTFILE0001 /* SanityTests.swift */,
 				SERVICESGROUP0001 /* Services */,
+				INTEGRATIONGROUP0001 /* Integration */,
 				MOCKGROUP0001 /* Mocks */,
 				HELPERGROUP0001 /* Helpers */,
 				TESTINFO0001 /* Info.plist */,
@@ -228,7 +233,16 @@
 			path = AltTabTests;
 			sourceTree = "<group>";
 		};
-/* End PBXGroup section */
+		INTEGRATIONGROUP0001 /* Integration */ = {
+			isa = PBXGroup;
+			children = (
+				TESTFILE0004 /* WindowTrackingIntegrationTests.swift */,
+				TESTFILE0005 /* EnumerationPipelineTests.swift */,
+			);
+			path = Integration;
+			sourceTree = "<group>";
+		};
+		/* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
 		A60000010000000000000001 /* AltTab */ = {
@@ -352,6 +366,8 @@
 				TEST0001 /* SanityTests.swift in Sources */,
 				TEST0002 /* MRUTrackerTests.swift in Sources */,
 				TEST0003 /* WindowEnumerationServiceTests.swift in Sources */,
+				TEST0004 /* WindowTrackingIntegrationTests.swift in Sources */,
+				TEST0005 /* EnumerationPipelineTests.swift in Sources */,
 				MOCK0001 /* MockAccessibilityService.swift in Sources */,
 				MOCK0002 /* MockWindowEnumerator.swift in Sources */,
 				MOCK0003 /* MockThumbnailCache.swift in Sources */,
