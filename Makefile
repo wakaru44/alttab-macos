@@ -26,7 +26,14 @@ build-debug: ##@App Build the app (Debug)
 
 test: ##@Testing Run unit tests
 	@echo "Running unit tests..."
-	cd AltTab && xcodebuild test -project AltTab.xcodeproj -scheme AltTab -configuration Debug -destination 'platform=macOS' 2>&1 | grep -E 'Test Suite|Test Case|error:|FAILED|SUCCEEDED' || true
+	cd AltTab && xcodebuild test -project AltTab.xcodeproj -scheme AltTab -configuration Debug -destination 'platform=macOS' -enableCodeCoverage YES 2>&1 | grep -E 'Test Suite|Test Case|error:|FAILED|SUCCEEDED' || true
+
+test-coverage: ##@Testing Run tests with code coverage report
+	@echo "Running tests with coverage..."
+	cd AltTab && xcodebuild test -project AltTab.xcodeproj -scheme AltTab -configuration Debug -destination 'platform=macOS' -enableCodeCoverage YES 2>&1 | grep -E 'Test Suite|Test Case|error:|FAILED|SUCCEEDED' || true
+	@echo ""
+	@echo "Coverage report:"
+	@xcrun xcresulttool get --format json --path $$(find AltTab/build/Build/Logs/Test -name "*.xcresult" -maxdepth 1 2>/dev/null | head -1) 2>/dev/null | python3 -c "import sys,json; d=json.load(sys.stdin); print('Coverage data available in .xcresult bundle')" 2>/dev/null || echo "Run 'xcrun xccov view --report <path>.xcresult' to see detailed coverage"
 
 install: ##@App Install the app
 	./build.sh install
