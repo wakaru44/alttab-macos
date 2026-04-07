@@ -28,6 +28,13 @@
 		F8E9B2A3D5C14E18 /* WindowTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F8A3B4C6D24F29 /* WindowTracker.swift */; };
 		FE233A5F962A4750821BAE1F /* SwitcherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */; };
 		TEST0001 /* SanityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0001 /* SanityTests.swift */; };
+		MOCK0001 /* MockAccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0001 /* MockAccessibilityService.swift */; };
+		MOCK0002 /* MockWindowEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0002 /* MockWindowEnumerator.swift */; };
+		MOCK0003 /* MockThumbnailCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0003 /* MockThumbnailCache.swift */; };
+		MOCK0004 /* MockThumbnailCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0004 /* MockThumbnailCapture.swift */; };
+		MOCK0005 /* MockMRUTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0005 /* MockMRUTracker.swift */; };
+		MOCK0006 /* MockWindowTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0006 /* MockWindowTracker.swift */; };
+		HELPER0001 /* WindowInfoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = HELPERFILE0001 /* WindowInfoFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +74,13 @@
 		TESTBUNDLE0001 /* AltTabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AltTabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		TESTFILE0001 /* SanityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanityTests.swift; sourceTree = "<group>"; };
 		TESTINFO0001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		MOCKFILE0001 /* MockAccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAccessibilityService.swift; sourceTree = "<group>"; };
+		MOCKFILE0002 /* MockWindowEnumerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWindowEnumerator.swift; sourceTree = "<group>"; };
+		MOCKFILE0003 /* MockThumbnailCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockThumbnailCache.swift; sourceTree = "<group>"; };
+		MOCKFILE0004 /* MockThumbnailCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockThumbnailCapture.swift; sourceTree = "<group>"; };
+		MOCKFILE0005 /* MockMRUTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMRUTracker.swift; sourceTree = "<group>"; };
+		MOCKFILE0006 /* MockWindowTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWindowTracker.swift; sourceTree = "<group>"; };
+		HELPERFILE0001 /* WindowInfoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowInfoFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,9 +152,32 @@
 			isa = PBXGroup;
 			children = (
 				TESTFILE0001 /* SanityTests.swift */,
+				MOCKGROUP0001 /* Mocks */,
+				HELPERGROUP0001 /* Helpers */,
 				TESTINFO0001 /* Info.plist */,
 			);
 			path = AltTabTests;
+			sourceTree = "<group>";
+		};
+		MOCKGROUP0001 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				MOCKFILE0001 /* MockAccessibilityService.swift */,
+				MOCKFILE0002 /* MockWindowEnumerator.swift */,
+				MOCKFILE0003 /* MockThumbnailCache.swift */,
+				MOCKFILE0004 /* MockThumbnailCapture.swift */,
+				MOCKFILE0005 /* MockMRUTracker.swift */,
+				MOCKFILE0006 /* MockWindowTracker.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		HELPERGROUP0001 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				HELPERFILE0001 /* WindowInfoFactory.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +302,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				TEST0001 /* SanityTests.swift in Sources */,
+				MOCK0001 /* MockAccessibilityService.swift in Sources */,
+				MOCK0002 /* MockWindowEnumerator.swift in Sources */,
+				MOCK0003 /* MockThumbnailCache.swift in Sources */,
+				MOCK0004 /* MockThumbnailCapture.swift in Sources */,
+				MOCK0005 /* MockMRUTracker.swift in Sources */,
+				MOCK0006 /* MockWindowTracker.swift in Sources */,
+				HELPER0001 /* WindowInfoFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
