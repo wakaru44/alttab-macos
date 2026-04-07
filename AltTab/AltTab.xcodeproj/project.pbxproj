@@ -35,6 +35,8 @@
 		MOCK0005 /* MockMRUTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0005 /* MockMRUTracker.swift */; };
 		MOCK0006 /* MockWindowTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0006 /* MockWindowTracker.swift */; };
 		HELPER0001 /* WindowInfoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = HELPERFILE0001 /* WindowInfoFactory.swift */; };
+		TEST0002 /* MRUTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0002 /* MRUTrackerTests.swift */; };
+		TEST0003 /* WindowEnumerationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0003 /* WindowEnumerationServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		MOCKFILE0005 /* MockMRUTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMRUTracker.swift; sourceTree = "<group>"; };
 		MOCKFILE0006 /* MockWindowTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWindowTracker.swift; sourceTree = "<group>"; };
 		HELPERFILE0001 /* WindowInfoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowInfoFactory.swift; sourceTree = "<group>"; };
+		TESTFILE0002 /* MRUTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRUTrackerTests.swift; sourceTree = "<group>"; };
+		TESTFILE0003 /* WindowEnumerationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowEnumerationServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				TESTFILE0001 /* SanityTests.swift */,
+				SERVICESGROUP0001 /* Services */,
 				MOCKGROUP0001 /* Mocks */,
 				HELPERGROUP0001 /* Helpers */,
 				TESTINFO0001 /* Info.plist */,
@@ -178,6 +183,15 @@
 				HELPERFILE0001 /* WindowInfoFactory.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		SERVICESGROUP0001 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				TESTFILE0002 /* MRUTrackerTests.swift */,
+				TESTFILE0003 /* WindowEnumerationServiceTests.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +316,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				TEST0001 /* SanityTests.swift in Sources */,
+				TEST0002 /* MRUTrackerTests.swift in Sources */,
+				TEST0003 /* WindowEnumerationServiceTests.swift in Sources */,
 				MOCK0001 /* MockAccessibilityService.swift in Sources */,
 				MOCK0002 /* MockWindowEnumerator.swift in Sources */,
 				MOCK0003 /* MockThumbnailCache.swift in Sources */,
