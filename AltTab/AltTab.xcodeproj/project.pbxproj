@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20901F49D669C16E4B6DF3F7 /* SwitcherViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C17047CEAC240CED272490 /* SwitcherViewModelTests.swift */; };
 		A10000010000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000001 /* AppDelegate.swift */; };
 		A10000020000000000000002 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000020000000000000002 /* HotkeyManager.swift */; };
 		A10000030000000000000003 /* WindowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000030000000000000003 /* WindowModel.swift */; };
@@ -27,14 +28,14 @@
 		D6D4F592F5514633 /* MRUTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9159495798A4356 /* MRUTracker.swift */; };
 		F8E9B2A3D5C14E18 /* WindowTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F8A3B4C6D24F29 /* WindowTracker.swift */; };
 		FE233A5F962A4750821BAE1F /* SwitcherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */; };
-		TEST0001 /* SanityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0001 /* SanityTests.swift */; };
+		HELPER0001 /* WindowInfoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = HELPERFILE0001 /* WindowInfoFactory.swift */; };
 		MOCK0001 /* MockAccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0001 /* MockAccessibilityService.swift */; };
 		MOCK0002 /* MockWindowEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0002 /* MockWindowEnumerator.swift */; };
 		MOCK0003 /* MockThumbnailCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0003 /* MockThumbnailCache.swift */; };
 		MOCK0004 /* MockThumbnailCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0004 /* MockThumbnailCapture.swift */; };
 		MOCK0005 /* MockMRUTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0005 /* MockMRUTracker.swift */; };
 		MOCK0006 /* MockWindowTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0006 /* MockWindowTracker.swift */; };
-		HELPER0001 /* WindowInfoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = HELPERFILE0001 /* WindowInfoFactory.swift */; };
+		TEST0001 /* SanityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0001 /* SanityTests.swift */; };
 		TEST0002 /* MRUTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0002 /* MRUTrackerTests.swift */; };
 		TEST0003 /* WindowEnumerationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0003 /* WindowEnumerationServiceTests.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05C17047CEAC240CED272490 /* SwitcherViewModelTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwitcherViewModelTests.swift; sourceTree = "<group>"; };
 		A1010101 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		A1010102 /* AccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityService.swift; sourceTree = "<group>"; };
 		A1010103 /* WindowEnumerationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowEnumerationService.swift; sourceTree = "<group>"; };
@@ -73,18 +75,18 @@
 		C9159495798A4356 /* MRUTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRUTracker.swift; sourceTree = "<group>"; };
 		D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitcherViewModel.swift; sourceTree = "<group>"; };
 		E7F8A3B4C6D24F29 /* WindowTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTracker.swift; sourceTree = "<group>"; };
-		TESTBUNDLE0001 /* AltTabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AltTabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		TESTFILE0001 /* SanityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanityTests.swift; sourceTree = "<group>"; };
-		TESTINFO0001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		HELPERFILE0001 /* WindowInfoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowInfoFactory.swift; sourceTree = "<group>"; };
 		MOCKFILE0001 /* MockAccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAccessibilityService.swift; sourceTree = "<group>"; };
 		MOCKFILE0002 /* MockWindowEnumerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWindowEnumerator.swift; sourceTree = "<group>"; };
 		MOCKFILE0003 /* MockThumbnailCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockThumbnailCache.swift; sourceTree = "<group>"; };
 		MOCKFILE0004 /* MockThumbnailCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockThumbnailCapture.swift; sourceTree = "<group>"; };
 		MOCKFILE0005 /* MockMRUTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMRUTracker.swift; sourceTree = "<group>"; };
 		MOCKFILE0006 /* MockWindowTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWindowTracker.swift; sourceTree = "<group>"; };
-		HELPERFILE0001 /* WindowInfoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowInfoFactory.swift; sourceTree = "<group>"; };
+		TESTBUNDLE0001 /* AltTabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AltTabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		TESTFILE0001 /* SanityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanityTests.swift; sourceTree = "<group>"; };
 		TESTFILE0002 /* MRUTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRUTrackerTests.swift; sourceTree = "<group>"; };
 		TESTFILE0003 /* WindowEnumerationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowEnumerationServiceTests.swift; sourceTree = "<group>"; };
+		TESTINFO0001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16B8B9EED885373E474CC07C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		937925FFB5C1BD57B2205982 /* AltTabTests */ = {
+			isa = PBXGroup;
+			children = (
+				16B8B9EED885373E474CC07C /* ViewModels */,
+			);
+			name = AltTabTests;
+			sourceTree = "<group>";
+		};
 		A50000010000000000000001 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +156,7 @@
 				A2000011000000000000000B /* Info.plist */,
 				A2000012000000000000000C /* AltTab.entitlements */,
 				D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */,
+				937925FFB5C1BD57B2205982 /* AltTabTests */,
 			);
 			path = AltTab;
 			sourceTree = "<group>";
@@ -152,16 +170,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		TESTGROUP0001 /* AltTabTests */ = {
+		E0D4B284DC931BD409D872B3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				TESTFILE0001 /* SanityTests.swift */,
-				SERVICESGROUP0001 /* Services */,
-				MOCKGROUP0001 /* Mocks */,
-				HELPERGROUP0001 /* Helpers */,
-				TESTINFO0001 /* Info.plist */,
+				05C17047CEAC240CED272490 /* SwitcherViewModelTests.swift */,
 			);
-			path = AltTabTests;
+			name = ViewModels;
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		HELPERGROUP0001 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				HELPERFILE0001 /* WindowInfoFactory.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		MOCKGROUP0001 /* Mocks */ = {
@@ -177,14 +200,6 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
-		HELPERGROUP0001 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				HELPERFILE0001 /* WindowInfoFactory.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		SERVICESGROUP0001 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +207,19 @@
 				TESTFILE0003 /* WindowEnumerationServiceTests.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		TESTGROUP0001 /* AltTabTests */ = {
+			isa = PBXGroup;
+			children = (
+				TESTFILE0001 /* SanityTests.swift */,
+				SERVICESGROUP0001 /* Services */,
+				MOCKGROUP0001 /* Mocks */,
+				HELPERGROUP0001 /* Helpers */,
+				TESTINFO0001 /* Info.plist */,
+				E0D4B284DC931BD409D872B3 /* ViewModels */,
+			);
+			path = AltTabTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +353,7 @@
 				MOCK0005 /* MockMRUTracker.swift in Sources */,
 				MOCK0006 /* MockWindowTracker.swift in Sources */,
 				HELPER0001 /* WindowInfoFactory.swift in Sources */,
+				20901F49D669C16E4B6DF3F7 /* SwitcherViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
