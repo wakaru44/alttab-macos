@@ -50,10 +50,13 @@ Plans:
   4. Window sorting (MRU priority, visible-over-minimized) has unit tests covering all edge cases
   5. Integration tests verify AXObserver callbacks and NSWorkspace notifications update MRU correctly
   6. Code coverage reports show 60-80% overall coverage minimum
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 02-01: TBD during planning
+- [ ] 02-01-PLAN.md — Create XCTest target, mock implementations for all 6 protocols, and test helpers
+- [ ] 02-02-PLAN.md — Unit tests for MRUTracker and WindowEnumerationService (filtering/sorting)
+- [ ] 02-03-PLAN.md — Unit tests for SwitcherViewModel, ThumbnailRepository, WindowActivator
+- [ ] 02-04-PLAN.md — Integration tests for observer lifecycle, enumeration pipeline, coverage setup
 
 ### Phase 3: Quality Assurance
 **Goal**: Achieve zero defects, zero violations, and fix all known bugs
@@ -108,8 +111,8 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Architecture Foundation | 0/4 | Planned | - |
-| 2. Testing Infrastructure | 0/TBD | Not started | - |
+| 1. Architecture Foundation | 4/4 | Complete | - |
+| 2. Testing Infrastructure | 0/4 | Planned | - |
 | 3. Quality Assurance | 0/TBD | Not started | - |
 | 4. Documentation | 0/TBD | Not started | - |
 | 5. Build & Assets | 0/TBD | Not started | - |
