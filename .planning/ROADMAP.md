@@ -72,9 +72,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — SwiftLint configuration, fix all lint violations, replace force unwraps
-- [ ] 03-02-PLAN.md — Fix window filtering, eliminate permission polling, hotkey thread safety
-- [ ] 03-03-PLAN.md — Enable Xcode static analysis, warnings-as-errors, end-to-end QA verification
+- [x] 03-01-PLAN.md — SwiftLint configuration, fix all lint violations, replace force unwraps
+- [x] 03-02-PLAN.md — Fix window filtering, eliminate permission polling, hotkey thread safety
+- [x] 03-03-PLAN.md — Enable Xcode static analysis, warnings-as-errors, end-to-end QA verification
 
 ### Phase 4: Documentation
 **Goal**: Complete architecture documentation, API docs, and developer onboarding materials
