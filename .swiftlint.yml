@@ -1,0 +1,16 @@
+included:
+  - AltTab/AltTab
+
+excluded:
+  - AltTab/build
+  - AltTab/AltTabTests
+  - "**/*.generated.swift"
+
+line_length:
+  warning: 120
+  error: 200
+
+opt_in_rules:
+  - force_cast
+  - force_try
+  - force_unwrapping
