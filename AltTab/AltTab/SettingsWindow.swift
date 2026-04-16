@@ -17,7 +17,6 @@ import ServiceManagement
 
 final class SettingsWindowController: NSWindowController {
 
-    private var permissionStatusTimer: Timer?
     private var accessibilityStatusLabel: NSTextField?
     private var accessibilityButton: NSButton?
     private var screenRecordingStatusLabel: NSTextField?
@@ -105,12 +104,15 @@ final class SettingsWindowController: NSWindowController {
         self.screenRecordingButton = screenRecordingBtn
         contentView.addSubview(screenRecordingBox)
 
+        // Refresh button — allows user to re-check permissions on demand (no polling)
+        let refreshButton = NSButton(title: "Refresh Status", target: self, action: #selector(updatePermissionStatus))
+        refreshButton.bezelStyle = .rounded
+        refreshButton.frame = NSRect(x: 370, y: 314, width: 130, height: 24)
+        contentView.addSubview(refreshButton)
+
         window.contentView = contentView
 
         updatePermissionStatus()
-        permissionStatusTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { [weak self] _ in
-            self?.updatePermissionStatus()
-        }
     }
 
     // Box interior layout (box: 480w × 100h, coordinates relative to box bounds).
@@ -245,7 +247,4 @@ final class SettingsWindowController: NSWindowController {
         updatePermissionStatus()
     }
 
-    deinit {
-        permissionStatusTimer?.invalidate()
-    }
 }

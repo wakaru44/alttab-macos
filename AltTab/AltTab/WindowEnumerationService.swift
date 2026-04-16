@@ -5,7 +5,7 @@ final class WindowEnumerationService: WindowEnumerating {
 
     private let accessibilityService: AccessibilityProviding
     private let mruTracker: MRUTracking
-    private let selfBundleID = Bundle.main.bundleIdentifier ?? ""
+    private let selfPID = ProcessInfo.processInfo.processIdentifier
 
     init(accessibilityService: AccessibilityProviding, mruTracker: MRUTracking) {
         self.accessibilityService = accessibilityService
@@ -54,9 +54,8 @@ final class WindowEnumerationService: WindowEnumerating {
             }
         }
 
-        // 3. Remove own windows
-        let selfPID = ProcessInfo.processInfo.processIdentifier
-        windows.removeAll { $0.ownerName == "AltTab" || $0.ownerPID == selfPID }
+        // 3. Remove own windows (PID-only check, no fragile string matching)
+        windows.removeAll { $0.ownerPID == selfPID }
 
         // 4. Sort by MRU (visible before minimized)
         mruTracker.prune(validIDs: Set(windows.map { $0.windowID }))
@@ -76,12 +75,23 @@ final class WindowEnumerationService: WindowEnumerating {
     private func parseWindowInfo(_ info: [String: Any], isMinimized: Bool) -> WindowInfo? {
         guard let windowID = info[kCGWindowNumber as String] as? CGWindowID,
               let ownerPID = info[kCGWindowOwnerPID as String] as? pid_t,
-              let ownerName = info[kCGWindowOwnerName as String] as? String,
-              let layer = info[kCGWindowLayer as String] as? Int, layer == 0,
-              let boundsDict = info[kCGWindowBounds as String] as? [String: CGFloat],
+              let ownerName = info[kCGWindowOwnerName as String] as? String else {
+            return nil
+        }
+
+        // Layer 0 = normal windows. Filter non-zero layers (system chrome, menubar, dock, etc.)
+        guard let layer = info[kCGWindowLayer as String] as? Int, layer == 0 else {
+            NSLog("WindowEnum: Filtered windowID=\(windowID) owner=\(ownerName) reason=layer(\(info[kCGWindowLayer as String] as? Int ?? -1))")
+            return nil
+        }
+
+        guard let boundsDict = info[kCGWindowBounds as String] as? [String: CGFloat],
               let posX = boundsDict["X"], let posY = boundsDict["Y"],
               let width = boundsDict["Width"], let height = boundsDict["Height"],
-              width > 0, height > 0 else { return nil }
+              width > 0, height > 0 else {
+            NSLog("WindowEnum: Filtered windowID=\(windowID) owner=\(ownerName) reason=bounds")
+            return nil
+        }
 
         var title = info[kCGWindowName as String] as? String ?? ""
         if title.isEmpty {
