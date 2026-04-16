@@ -53,10 +53,10 @@ Plans:
 **Plans**: 4 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Create XCTest target, mock implementations for all 6 protocols, and test helpers
-- [ ] 02-02-PLAN.md — Unit tests for MRUTracker and WindowEnumerationService (filtering/sorting)
-- [ ] 02-03-PLAN.md — Unit tests for SwitcherViewModel, ThumbnailRepository, WindowActivator
-- [ ] 02-04-PLAN.md — Integration tests for observer lifecycle, enumeration pipeline, coverage setup
+- [x] 02-01-PLAN.md — Create XCTest target, mock implementations for all 6 protocols, and test helpers
+- [x] 02-02-PLAN.md — Unit tests for MRUTracker and WindowEnumerationService (filtering/sorting)
+- [x] 02-03-PLAN.md — Unit tests for SwitcherViewModel, ThumbnailRepository, WindowActivator
+- [x] 02-04-PLAN.md — Integration tests for observer lifecycle, enumeration pipeline, coverage setup
 
 ### Phase 3: Quality Assurance
 **Goal**: Achieve zero defects, zero violations, and fix all known bugs
@@ -69,10 +69,12 @@ Plans:
   4. No force unwraps remain except where documented safe with rationale comments
   5. Static analysis shows zero warnings in Xcode
   6. All known bugs from CONCERNS.md are resolved and verified with tests
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 03-01: TBD during planning
+- [ ] 03-01-PLAN.md — SwiftLint configuration, fix all lint violations, replace force unwraps
+- [ ] 03-02-PLAN.md — Fix window filtering, eliminate permission polling, hotkey thread safety
+- [ ] 03-03-PLAN.md — Enable Xcode static analysis, warnings-as-errors, end-to-end QA verification
 
 ### Phase 4: Documentation
 **Goal**: Complete architecture documentation, API docs, and developer onboarding materials
@@ -113,6 +115,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Architecture Foundation | 4/4 | Complete | - |
 | 2. Testing Infrastructure | 0/4 | Planned | - |
-| 3. Quality Assurance | 0/TBD | Not started | - |
+| 3. Quality Assurance | 0/3 | Planned | - |
 | 4. Documentation | 0/TBD | Not started | - |
 | 5. Build & Assets | 0/TBD | Not started | - |
