@@ -203,6 +203,7 @@ final class HotkeyManager {
         return Unmanaged.passUnretained(event)
     }
 
+    // swiftlint:disable:next function_body_length
     private func handleKeyDown(_ event: CGEvent) -> Unmanaged<CGEvent>? {
         let keyCode = event.getIntegerValueField(.keyboardEventKeycode)
         let flags = event.flags

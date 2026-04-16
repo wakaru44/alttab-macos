@@ -51,6 +51,7 @@ final class ThumbnailView: NSView {
 
     // MARK: - Setup
 
+    // swiftlint:disable:next function_body_length
     private func setupViews(width: CGFloat, height: CGFloat) {
         wantsLayer = true
 
@@ -132,7 +133,7 @@ final class ThumbnailView: NSView {
 
             // Fixed size
             widthAnchor.constraint(equalToConstant: width),
-            heightAnchor.constraint(equalToConstant: height),
+            heightAnchor.constraint(equalToConstant: height)
         ])
     }
 

@@ -37,7 +37,9 @@ final class WindowTracker: WindowTrackingService {
             object: nil, queue: .main
         ) { [weak self] notification in
             guard let self = self,
-                  let app = notification.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication else { return }
+                  let app = notification.userInfo?[
+                    NSWorkspace.applicationUserInfoKey
+                  ] as? NSRunningApplication else { return }
             self.promoteAppFocusedWindow(pid: app.processIdentifier)
         }
     }
@@ -66,7 +68,9 @@ final class WindowTracker: WindowTrackingService {
             forName: NSWorkspace.didTerminateApplicationNotification,
             object: nil, queue: .main
         ) { [weak self] notification in
-            guard let app = notification.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication else { return }
+            guard let app = notification.userInfo?[
+                NSWorkspace.applicationUserInfoKey
+            ] as? NSRunningApplication else { return }
             self?.removeAXObserver(for: app.processIdentifier)
         }
     }

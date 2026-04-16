@@ -54,11 +54,16 @@ final class SettingsWindowController: NSWindowController {
     private func setupUI() {
         guard let window = window else { return }
 
-        let contentView = NSView(frame: window.contentView!.bounds)
+        guard let existingContentView = window.contentView else { return }
+        let contentView = NSView(frame: existingContentView.bounds)
         contentView.autoresizingMask = [.width, .height]
 
         // Launch at Login checkbox  (y=314, h=22)
-        let launchAtLoginCheckbox = NSButton(checkboxWithTitle: "Launch at Login", target: self, action: #selector(toggleLaunchAtLogin(_:)))
+        let launchAtLoginCheckbox = NSButton(
+            checkboxWithTitle: "Launch at Login",
+            target: self,
+            action: #selector(toggleLaunchAtLogin(_:))
+        )
         launchAtLoginCheckbox.frame = NSRect(x: 20, y: 314, width: 200, height: 22)
         if #available(macOS 13.0, *) {
             launchAtLoginCheckbox.state = SMAppService.mainApp.status == .enabled ? .on : .off
@@ -115,7 +120,10 @@ final class SettingsWindowController: NSWindowController {
     //   desc:    x=14  y=40  w=300  h=18
     //   status:  x=14  y=8   w=200  h=18  → bottom at 8, 13px from visual border
     //   button:  x=320 y=30  w=146  h=32  (right side, vertically centred in box)
-    private func createPermissionBox(title: String, description: String, yPosition: CGFloat, requestAction: Selector) -> (NSView, NSTextField, NSButton) {
+    private func createPermissionBox(
+        title: String, description: String,
+        yPosition: CGFloat, requestAction: Selector
+    ) -> (NSView, NSTextField, NSButton) { // swiftlint:disable:this large_tuple
         let box = NSBox(frame: NSRect(x: 20, y: yPosition, width: 480, height: 100))
         box.titlePosition = .noTitle
         box.boxType = .primary
@@ -172,13 +180,20 @@ final class SettingsWindowController: NSWindowController {
     @objc private func requestAccessibilityPermission() {
         let alert = NSAlert()
         alert.messageText = "Accessibility Permission Required"
-        alert.informativeText = "Please grant Accessibility permission in:\n\nSystem Settings → Privacy & Security → Accessibility\n\nThen click 'Add' (+) and select AltTab.app"
+        alert.informativeText = """
+            Please grant Accessibility permission in:\n\
+            System Settings → Privacy & Security → Accessibility\n\
+            Then click 'Add' (+) and select AltTab.app
+            """
         alert.alertStyle = .informational
         alert.addButton(withTitle: "Open System Settings")
         alert.addButton(withTitle: "Cancel")
 
         if alert.runModal() == .alertFirstButtonReturn {
-            NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility")!)
+            let urlString = "x-apple.systempreferences:"
+                + "com.apple.preference.security?Privacy_Accessibility"
+            guard let url = URL(string: urlString) else { return }
+            NSWorkspace.shared.open(url)
         }
     }
 
@@ -188,12 +203,18 @@ final class SettingsWindowController: NSWindowController {
         // Lightweight check — CGWindowListCopyWindowInfo requires Screen Recording;
         // if it returns nil or an empty list while other apps are running, permission is denied.
         // We use a simple heuristic: if the list returns at least one entry we're likely granted.
-        let windowList = CGWindowListCopyWindowInfo([.optionOnScreenOnly, .excludeDesktopElements], kCGNullWindowID) as? [[String: Any]]
+        let windowList = CGWindowListCopyWindowInfo(
+            [.optionOnScreenOnly, .excludeDesktopElements],
+            kCGNullWindowID
+        ) as? [[String: Any]]
         return !(windowList?.isEmpty ?? true)
     }
 
     @objc private func openScreenRecordingSettings() {
-        NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture")!)
+        let urlString = "x-apple.systempreferences:"
+            + "com.apple.preference.security?Privacy_ScreenCapture"
+        guard let url = URL(string: urlString) else { return }
+        NSWorkspace.shared.open(url)
     }
 
     // MARK: - Launch at Login

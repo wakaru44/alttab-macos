@@ -36,6 +36,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, HotkeyDelegate {
     private var switcherPanel: SwitcherPanel!
     private var permissionManager: PermissionManager!
 
+    // Force unwrap safe: All properties initialized in applicationDidFinishLaunching before any access
+
+    // swiftlint:disable:next function_body_length
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSLog("AltTab: applicationDidFinishLaunching")
         NSApp.setActivationPolicy(.accessory)

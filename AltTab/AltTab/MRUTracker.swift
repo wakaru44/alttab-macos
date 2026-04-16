@@ -38,8 +38,8 @@ final class MRUTracker: MRUTracking {
             guard let id = info[kCGWindowNumber as String] as? CGWindowID,
                   let layer = info[kCGWindowLayer as String] as? Int, layer == 0,
                   let bounds = info[kCGWindowBounds as String] as? [String: CGFloat],
-                  let w = bounds["Width"], let h = bounds["Height"],
-                  w > 0, h > 0 else { return nil }
+                  let width = bounds["Width"], let height = bounds["Height"],
+                  width > 0, height > 0 else { return nil }
             return id
         }
     }

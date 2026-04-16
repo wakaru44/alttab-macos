@@ -69,7 +69,8 @@ final class WindowCapture: ThumbnailCapturing {
                         updatedWindows[index].thumbnail = thumbnail
                         NSLog("WindowCapture: Successfully captured window \(window.windowID)")
                     } catch {
-                        NSLog("WindowCapture: Failed to capture window \(window.windowID): \(error.localizedDescription)")
+                        NSLog("WindowCapture: Failed to capture window %d: %@",
+                              window.windowID, error.localizedDescription)
                     }
                 }
             } catch {

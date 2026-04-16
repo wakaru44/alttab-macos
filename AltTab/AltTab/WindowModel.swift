@@ -14,7 +14,7 @@ struct WindowInfo {
 
     var appIcon: NSImage {
         NSRunningApplication(processIdentifier: ownerPID)?.icon
-            ?? NSImage(named: NSImage.applicationIconName)!
+            ?? NSImage(named: NSImage.applicationIconName) ?? NSImage()
     }
 }
 

@@ -14,8 +14,11 @@ final class AccessibilityService: AccessibilityProviding {
     func focusedWindow(for pid: pid_t) -> AXUIElement? {
         let axApp = AXUIElementCreateApplication(pid)
         var focusedRef: CFTypeRef?
-        guard AXUIElementCopyAttributeValue(axApp, kAXFocusedWindowAttribute as CFString, &focusedRef) == .success else { return nil }
-        return (focusedRef as! AXUIElement)
+        guard AXUIElementCopyAttributeValue(
+            axApp, kAXFocusedWindowAttribute as CFString, &focusedRef
+        ) == .success, let ref = focusedRef else { return nil }
+        // Force cast safe: AX API guarantees AXUIElement type on .success
+        return (ref as! AXUIElement) // swiftlint:disable:this force_cast
     }
 
     func windowID(for element: AXUIElement) -> CGWindowID? {

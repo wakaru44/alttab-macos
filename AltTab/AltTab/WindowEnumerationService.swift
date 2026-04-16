@@ -61,10 +61,10 @@ final class WindowEnumerationService: WindowEnumerating {
         // 4. Sort by MRU (visible before minimized)
         mruTracker.prune(validIDs: Set(windows.map { $0.windowID }))
         let mruOrder = mruTracker.orderedIDs()
-        windows.sort { a, b in
-            if a.isMinimized != b.isMinimized { return !a.isMinimized }
-            let idxA = mruOrder.firstIndex(of: a.windowID) ?? Int.max
-            let idxB = mruOrder.firstIndex(of: b.windowID) ?? Int.max
+        windows.sort { lhs, rhs in
+            if lhs.isMinimized != rhs.isMinimized { return !lhs.isMinimized }
+            let idxA = mruOrder.firstIndex(of: lhs.windowID) ?? Int.max
+            let idxB = mruOrder.firstIndex(of: rhs.windowID) ?? Int.max
             return idxA < idxB
         }
 
@@ -79,9 +79,9 @@ final class WindowEnumerationService: WindowEnumerating {
               let ownerName = info[kCGWindowOwnerName as String] as? String,
               let layer = info[kCGWindowLayer as String] as? Int, layer == 0,
               let boundsDict = info[kCGWindowBounds as String] as? [String: CGFloat],
-              let x = boundsDict["X"], let y = boundsDict["Y"],
-              let w = boundsDict["Width"], let h = boundsDict["Height"],
-              w > 0, h > 0 else { return nil }
+              let posX = boundsDict["X"], let posY = boundsDict["Y"],
+              let width = boundsDict["Width"], let height = boundsDict["Height"],
+              width > 0, height > 0 else { return nil }
 
         var title = info[kCGWindowName as String] as? String ?? ""
         if title.isEmpty {
@@ -90,7 +90,7 @@ final class WindowEnumerationService: WindowEnumerating {
 
         return WindowInfo(
             windowID: windowID, ownerPID: ownerPID, ownerName: ownerName,
-            windowTitle: title, bounds: CGRect(x: x, y: y, width: w, height: h),
+            windowTitle: title, bounds: CGRect(x: posX, y: posY, width: width, height: height),
             isMinimized: isMinimized, thumbnail: nil
         )
     }
