@@ -35,10 +35,10 @@ Quality improvements and infrastructure to achieve production grade:
 - [ ] Repository pattern for thumbnail caching
 
 **Testing:**
-- [ ] 60-80% test coverage (unit + integration)
-- [ ] Unit tests for all ViewModels and business logic
-- [ ] Integration tests with mocked system APIs
-- [ ] Test infrastructure and test targets in Xcode
+- [x] 60-80% test coverage (unit + integration) — Validated in Phase 2: Testing Infrastructure
+- [x] Unit tests for all ViewModels and business logic — Validated in Phase 2: Testing Infrastructure
+- [x] Integration tests with mocked system APIs — Validated in Phase 2: Testing Infrastructure
+- [x] Test infrastructure and test targets in Xcode — Validated in Phase 2: Testing Infrastructure
 
 **Documentation:**
 - [ ] C4 architecture diagrams (Context, Container, Component) in Structurizr DSL
@@ -47,10 +47,10 @@ Quality improvements and infrastructure to achieve production grade:
 - [ ] Architecture documentation in `.planning/architecture/`
 
 **Quality Assurance:**
-- [ ] SwiftLint configuration and all violations fixed
-- [ ] Static analysis integrated
-- [ ] Vulnerability scanning configured
-- [ ] Zero known bugs/defects
+- [x] SwiftLint configuration and all violations fixed — Validated in Phase 3: Quality Assurance
+- [x] Static analysis integrated — Validated in Phase 3: Quality Assurance
+- [ ] Vulnerability scanning configured (deferred to Phase 5 per D-24)
+- [x] Zero known bugs/defects — Validated in Phase 3: Quality Assurance (P1/P2 bugs fixed)
 
 **Build & CI/CD:**
 - [ ] Separate Debug and Release build configurations
@@ -88,11 +88,11 @@ Quality improvements and infrastructure to achieve production grade:
 - `WindowModel` is a god object (enumeration + filtering + sorting + MRU + observers)
 
 **Known Technical Debt:**
-- Zero test coverage
-- No static analysis or linting
+- Zero test coverage (resolved in Phase 2)
+- No static analysis or linting (resolved in Phase 3)
 - Missing documentation
-- Window filtering too aggressive (filters out valid windows)
-- Permission polling expensive (60% CPU from `SCShareableContent.current`)
+- Window filtering too aggressive (resolved in Phase 3 — debug logging added, PID-only self-filter)
+- Permission polling expensive (resolved in Phase 3 — timer removed, manual refresh button)
 - Uses private SPI `_AXUIElementGetWindow` (risky but necessary)
 
 **System Integration Challenges:**
@@ -135,4 +135,4 @@ Quality improvements and infrastructure to achieve production grade:
 | GitHub Actions for CI | Standard choice, native macOS runner support | — Pending |
 
 ---
-*Last updated: 2026-04-06 after initialization*
+*Last updated: 2026-04-16 after Phase 3 completion*
