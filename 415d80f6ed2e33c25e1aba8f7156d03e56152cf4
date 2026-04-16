@@ -1,0 +1,82 @@
+AltTab/AltTab/WindowModel.swift
+  d22e2568db7fae44 17
+AltTab/AltTab/MRUTracker.swift
+  d22e2568db7fae44 41-42
+AltTab/AltTab/AccessibilityService.swift
+  d22e2568db7fae44 17-21
+AltTab/AltTab/HotkeyManager.swift
+  d22e2568db7fae44 206
+AltTab/AltTab/WindowTracker.swift
+  d22e2568db7fae44 40-42,71-73
+AltTab/AltTab/ThumbnailView.swift
+  d22e2568db7fae44 54,136
+AltTab/AltTab/WindowEnumerationService.swift
+  d22e2568db7fae44 64-67,82-84,93
+AltTab/AltTab/WindowCapture.swift
+  d22e2568db7fae44 72-73
+AltTab/AltTab/AppDelegate.swift
+  d22e2568db7fae44 39-41
+AltTab/AltTab/SwitcherPanel.swift
+  d22e2568db7fae44 32-35,82,95,120
+AltTab/AltTab/SettingsWindow.swift
+  d22e2568db7fae44 57-58,62-66,123-126,183-187,193-196,206-209,214-217
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "415d80f6ed2e33c25e1aba8f7156d03e56152cf4",
+  "prompts": {
+    "0b3cac207237ba0a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9414196e-8ce9-4180-a621-6b3f47dd4a3a",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 803,
+      "overriden_lines": 0
+    },
+    "af68d45502b9b80b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "065147fd-df0e-4fab-9ae7-cd6b1aaf969e",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 297,
+      "overriden_lines": 0
+    },
+    "bb6d1bc257975b0f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b2a820fe-02ed-45ba-ab94-7ea3bfd82429",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 438,
+      "overriden_lines": 0
+    },
+    "d22e2568db7fae44": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8d38bb47-d9e5-4442-b066-7fd6c408614c",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 70,
+      "total_deletions": 33,
+      "accepted_lines": 72,
+      "overriden_lines": 0
+    }
+  }
+}
