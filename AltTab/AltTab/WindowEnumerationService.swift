@@ -81,7 +81,8 @@ final class WindowEnumerationService: WindowEnumerating {
 
         // Layer 0 = normal windows. Filter non-zero layers (system chrome, menubar, dock, etc.)
         guard let layer = info[kCGWindowLayer as String] as? Int, layer == 0 else {
-            NSLog("WindowEnum: Filtered windowID=\(windowID) owner=\(ownerName) reason=layer(\(info[kCGWindowLayer as String] as? Int ?? -1))")
+            let layerVal = info[kCGWindowLayer as String] as? Int ?? -1
+            NSLog("WindowEnum: Filtered windowID=\(windowID) owner=\(ownerName) reason=layer(\(layerVal))")
             return nil
         }
 
