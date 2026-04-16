@@ -1,0 +1,55 @@
+.planning/phases/03-quality-assurance/03-02-PLAN.md
+  af68d45502b9b80b 1-263
+.planning/phases/03-quality-assurance/03-03-PLAN.md
+  af68d45502b9b80b 1-170
+.planning/ROADMAP.md
+  af68d45502b9b80b 72,75-77,118
+.planning/phases/03-quality-assurance/03-01-PLAN.md
+  af68d45502b9b80b 1-234
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "1c33adae0ff55e7becd44d8e70d8f510b585dc5e",
+  "prompts": {
+    "0b3cac207237ba0a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9414196e-8ce9-4180-a621-6b3f47dd4a3a",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 225,
+      "total_deletions": 5,
+      "accepted_lines": 803,
+      "overriden_lines": 0
+    },
+    "af68d45502b9b80b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "065147fd-df0e-4fab-9ae7-cd6b1aaf969e",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 976,
+      "total_deletions": 4,
+      "accepted_lines": 976,
+      "overriden_lines": 0
+    },
+    "bb6d1bc257975b0f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b2a820fe-02ed-45ba-ab94-7ea3bfd82429",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "Wakaru Himura",
+      "messages": [],
+      "total_additions": 438,
+      "total_deletions": 0,
+      "accepted_lines": 438,
+      "overriden_lines": 0
+    }
+  }
+}
