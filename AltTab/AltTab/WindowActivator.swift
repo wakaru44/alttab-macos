@@ -18,7 +18,7 @@ final class WindowActivator {
         }
 
         // 2. Activate the owning application
-        app.activate(options: [.activateIgnoringOtherApps])
+        app.activate()
 
         // 3. Raise the specific window via AXUIElement
         raiseWindow(window: window)
