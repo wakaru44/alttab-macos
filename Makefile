@@ -30,10 +30,11 @@ test: ##@Testing Run unit tests
 
 test-coverage: ##@Testing Run tests with code coverage report
 	@echo "Running tests with coverage..."
-	cd AltTab && xcodebuild test -project AltTab.xcodeproj -scheme AltTab -configuration Debug -destination 'platform=macOS' -enableCodeCoverage YES 2>&1 | grep -E 'Test Suite|Test Case|error:|FAILED|SUCCEEDED' || true
+	@rm -rf AltTab/build/coverage.xcresult
+	cd AltTab && xcodebuild test -project AltTab.xcodeproj -scheme AltTab -configuration Debug -destination 'platform=macOS' -enableCodeCoverage YES -resultBundlePath build/coverage.xcresult 2>&1 | grep -E 'Test Suite|Test Case|error:|FAILED|SUCCEEDED' || true
 	@echo ""
 	@echo "Coverage report:"
-	@xcrun xcresulttool get --format json --path $$(find AltTab/build/Build/Logs/Test -name "*.xcresult" -maxdepth 1 2>/dev/null | head -1) 2>/dev/null | python3 -c "import sys,json; d=json.load(sys.stdin); print('Coverage data available in .xcresult bundle')" 2>/dev/null || echo "Run 'xcrun xccov view --report <path>.xcresult' to see detailed coverage"
+	@xcrun xccov view --report AltTab/build/coverage.xcresult 2>/dev/null || echo "No coverage data found"
 
 lint: ##@Quality Run SwiftLint
 	@echo "Running SwiftLint..."
