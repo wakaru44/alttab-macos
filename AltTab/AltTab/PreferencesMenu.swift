@@ -18,9 +18,18 @@ import ServiceManagement
 final class PreferencesMenu {
 
     let menu: NSMenu
+    var settingsWindowController: SettingsWindowController?
 
     init() {
         menu = NSMenu()
+
+        let settingsItem = NSMenuItem(title: "Settings...",
+                                      action: #selector(showSettings(_:)),
+                                      keyEquivalent: ",")
+        settingsItem.target = self
+        menu.addItem(settingsItem)
+
+        menu.addItem(NSMenuItem.separator())
 
         let launchItem = NSMenuItem(title: "Launch at Login",
                                     action: #selector(toggleLaunchAtLogin(_:)),
@@ -72,6 +81,19 @@ final class PreferencesMenu {
                 alert.runModal()
             }
         }
+    }
+
+    // MARK: - Settings
+
+    @objc private func showSettings(_ sender: NSMenuItem) {
+        NSLog("PreferencesMenu: Opening Settings window...")
+        if settingsWindowController == nil {
+            settingsWindowController = SettingsWindowController()
+            NSLog("PreferencesMenu: Created new SettingsWindowController")
+        }
+        settingsWindowController?.showWindow(nil)
+        NSApp.activate(ignoringOtherApps: true)
+        NSLog("PreferencesMenu: Settings window shown")
     }
 
     @objc private func showAbout(_ sender: NSMenuItem) {

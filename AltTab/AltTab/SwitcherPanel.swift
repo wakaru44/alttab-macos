@@ -29,7 +29,10 @@ final class SwitcherPanel: NSPanel {
     private var thumbnailViews: [ThumbnailView] = []
     private var selectedIndex: Int = 0
 
-    override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing backingStoreType: NSWindow.BackingStoreType, defer flag: Bool) {
+    override init(
+        contentRect: NSRect, styleMask style: NSWindow.StyleMask,
+        backing backingStoreType: NSWindow.BackingStoreType, defer flag: Bool
+    ) {
         super.init(contentRect: contentRect,
                    styleMask: [.borderless, .nonactivatingPanel],
                    backing: .buffered,
@@ -76,7 +79,7 @@ final class SwitcherPanel: NSPanel {
             scrollView.topAnchor.constraint(equalTo: backdrop.topAnchor, constant: panelPadding),
             scrollView.bottomAnchor.constraint(equalTo: backdrop.bottomAnchor, constant: -panelPadding),
             scrollView.leadingAnchor.constraint(equalTo: backdrop.leadingAnchor, constant: panelPadding),
-            scrollView.trailingAnchor.constraint(equalTo: backdrop.trailingAnchor, constant: -panelPadding),
+            scrollView.trailingAnchor.constraint(equalTo: backdrop.trailingAnchor, constant: -panelPadding)
         ])
 
         stackView = NSStackView()
@@ -89,7 +92,7 @@ final class SwitcherPanel: NSPanel {
             stackView.topAnchor.constraint(equalTo: scrollView.contentView.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: scrollView.contentView.bottomAnchor),
             stackView.leadingAnchor.constraint(equalTo: scrollView.contentView.leadingAnchor),
-            stackView.heightAnchor.constraint(equalToConstant: itemHeight),
+            stackView.heightAnchor.constraint(equalToConstant: itemHeight)
         ])
     }
 
@@ -114,7 +117,7 @@ final class SwitcherPanel: NSPanel {
         }
 
         // Size and position the panel
-        let screen = NSScreen.main ?? NSScreen.screens.first!
+        guard let screen = NSScreen.main ?? NSScreen.screens.first else { return }
         let maxPanelWidth = screen.frame.width * 0.85
         let contentWidth = CGFloat(windows.count) * itemWidth + CGFloat(max(0, windows.count - 1)) * itemSpacing
         let panelWidth = min(maxPanelWidth, contentWidth + panelPadding * 2)

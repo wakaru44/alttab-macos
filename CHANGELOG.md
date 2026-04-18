@@ -5,6 +5,20 @@ All notable changes to AltTab will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- **BREAKING**: Minimum macOS version raised to 14.0+ (Sonoma) from 13.0
+- Migrated window thumbnail capture from deprecated `CGWindowListCreateImage` to modern `ScreenCaptureKit` (`SCScreenshotManager`)
+- Window screenshots now work reliably on macOS 15 (Sequoia) and all future macOS versions
+- Added proper error logging via `os.log` for capture diagnostics
+- Individual window capture failures no longer prevent other windows from being captured (graceful per-window fallback)
+
+### Removed
+
+- All legacy `CGWindowListCreateImage` capture code
+
 ## [1.1.0] - 2026-03-23
 
 ### Fixed

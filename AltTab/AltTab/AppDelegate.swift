@@ -2,14 +2,13 @@
 //  AppDelegate.swift
 //  AltTab — Windows-style Window Switcher for macOS
 //
-//  Application lifecycle and orchestration. Sets up the menu bar status item,
-//  manages permissions, and coordinates the hotkey manager, window model,
-//  thumbnail capture, and switcher panel. Implements HotkeyDelegate to
-//  respond to Option-Tab state machine transitions.
+//  Application lifecycle and DI composition root. Creates all services via
+//  constructor injection and wires them together. Delegates hotkey events to
+//  SwitcherViewModel which coordinates business logic. No business logic here.
 //
 //  Author:  Sergio Farfan <sergio.farfan@gmail.com>
-//  Version: 1.1.0
-//  Date:    2026-03-17
+//  Version: 2.0.0
+//  Date:    2026-04-06
 //  License: MIT
 //
 
@@ -18,18 +17,28 @@ import ServiceManagement
 
 class AppDelegate: NSObject, NSApplicationDelegate, HotkeyDelegate {
 
+    // MARK: - Services (created once, injected via constructors)
+
+    private var accessibilityService: AccessibilityService!
+    private var mruTracker: MRUTracker!
+    private var windowEnumerator: WindowEnumerationService!
+    private var thumbnailCache: ThumbnailRepository!
+    private var windowCapture: WindowCapture!
+    private var windowActivator: WindowActivator!
+    private var windowTracker: WindowTracker!
+    private var switcherViewModel: SwitcherViewModel!
+
+    // MARK: - UI
+
     private var statusItem: NSStatusItem!
     private var preferencesMenu: PreferencesMenu!
     private var hotkeyManager: HotkeyManager!
-    private var windowModel: WindowModel!
-    private var windowCapture: WindowCapture!
     private var switcherPanel: SwitcherPanel!
     private var permissionManager: PermissionManager!
 
-    private var currentWindows: [WindowInfo] = []
-    private var selectedIndex: Int = 0
-    private var switcherActive: Bool = false
+    // Force unwrap safe: All properties initialized in applicationDidFinishLaunching before any access
 
+    // swiftlint:disable:next function_body_length
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSLog("AltTab: applicationDidFinishLaunching")
         NSApp.setActivationPolicy(.accessory)
@@ -37,9 +46,42 @@ class AppDelegate: NSObject, NSApplicationDelegate, HotkeyDelegate {
         setupStatusItem()
         permissionManager = PermissionManager()
 
-        windowModel = WindowModel()
-        windowCapture = WindowCapture()
+        // Compose dependency graph
+        accessibilityService = AccessibilityService()
+        mruTracker = MRUTracker()
+        windowEnumerator = WindowEnumerationService(
+            accessibilityService: accessibilityService,
+            mruTracker: mruTracker
+        )
+        thumbnailCache = ThumbnailRepository()
+        windowCapture = WindowCapture(thumbnailCache: thumbnailCache)
+        windowActivator = WindowActivator(accessibilityService: accessibilityService)
+        windowTracker = WindowTracker(
+            accessibilityService: accessibilityService,
+            mruTracker: mruTracker
+        )
+        windowTracker.startTracking()
+
         switcherPanel = SwitcherPanel()
+        switcherViewModel = SwitcherViewModel(
+            windowEnumerator: windowEnumerator,
+            thumbnailCapture: windowCapture,
+            windowActivator: windowActivator,
+            mruTracker: mruTracker
+        )
+
+        // Bind ViewModel to View
+        switcherViewModel.onUpdate = { [weak self] in
+            guard let self = self else { return }
+            if self.switcherViewModel.isActive {
+                self.switcherPanel.show(
+                    windows: self.switcherViewModel.windows,
+                    selectedIndex: self.switcherViewModel.selectedIndex
+                )
+            } else {
+                self.switcherPanel.dismiss()
+            }
+        }
 
         hotkeyManager = HotkeyManager()
         hotkeyManager.delegate = self
@@ -48,8 +90,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, HotkeyDelegate {
             hotkeyManager.start()
             NSLog("AltTab: Accessibility already granted, hotkey active")
         } else {
-            // At login the TCC daemon may not be ready yet, causing a false negative.
-            // Wait briefly and recheck before prompting the user.
             NSLog("AltTab: Accessibility not yet trusted, will recheck before prompting")
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
                 guard let self = self else { return }
@@ -80,7 +120,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, HotkeyDelegate {
                 img.isTemplate = true
                 button.image = img
             } else {
-                // Fallback if SF Symbol unavailable
                 button.title = "⌥⇥"
             }
         }
@@ -89,60 +128,25 @@ class AppDelegate: NSObject, NSApplicationDelegate, HotkeyDelegate {
         NSLog("AltTab: Status item installed")
     }
 
-    // MARK: - HotkeyDelegate
+    // MARK: - HotkeyDelegate (delegates to ViewModel)
 
     func hotkeyDidActivate() {
-        currentWindows = windowModel.enumerateWindows()
-        guard !currentWindows.isEmpty else { return }
-        selectedIndex = min(1, currentWindows.count - 1) // start on second window (MRU)
-        switcherActive = true
-
-        // Capture thumbnails asynchronously
-        windowCapture.captureThumbnails(for: currentWindows) { [weak self] updatedWindows in
-            guard let self = self else { return }
-            self.currentWindows = updatedWindows
-            DispatchQueue.main.async {
-                // Only update if switcher is still active — avoids re-showing after dismiss
-                guard self.switcherActive else { return }
-                self.switcherPanel.show(windows: self.currentWindows,
-                                        selectedIndex: self.selectedIndex)
-            }
-        }
-
-        // Show immediately with placeholder icons
-        switcherPanel.show(windows: currentWindows, selectedIndex: selectedIndex)
+        switcherViewModel.activate()
     }
 
     func hotkeyDidCycleNext() {
-        guard !currentWindows.isEmpty else { return }
-        selectedIndex = (selectedIndex + 1) % currentWindows.count
-        switcherPanel.updateSelection(index: selectedIndex)
+        switcherViewModel.cycleNext()
     }
 
     func hotkeyDidCyclePrevious() {
-        guard !currentWindows.isEmpty else { return }
-        selectedIndex = (selectedIndex - 1 + currentWindows.count) % currentWindows.count
-        switcherPanel.updateSelection(index: selectedIndex)
+        switcherViewModel.cyclePrevious()
     }
 
     func hotkeyDidConfirm() {
-        guard switcherActive, !currentWindows.isEmpty,
-              selectedIndex < currentWindows.count else {
-            dismissSwitcher()
-            return
-        }
-        let window = currentWindows[selectedIndex]
-        dismissSwitcher()
-        WindowActivator.activate(window: window)
-        windowModel.promoteToFront(windowID: window.windowID)
+        switcherViewModel.confirm()
     }
 
     func hotkeyDidCancel() {
-        dismissSwitcher()
-    }
-
-    private func dismissSwitcher() {
-        switcherActive = false
-        switcherPanel.dismiss()
+        switcherViewModel.cancel()
     }
 }

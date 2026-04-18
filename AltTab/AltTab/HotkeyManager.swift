@@ -42,6 +42,7 @@ final class HotkeyManager {
     }
 
     private var state: State = .idle
+    private let serialQueue = DispatchQueue(label: "com.alttab.hotkey-state")
     private var eventTap: CFMachPort?
     private var runLoopSource: CFRunLoopSource?
     private var reEnableTimer: Timer?
@@ -143,10 +144,12 @@ final class HotkeyManager {
                 NSLog("AltTab: Event tap was disabled by system, re-enabling.")
                 CGEvent.tapEnable(tap: tap, enable: true)
                 // If we were active, we missed the Option release — force cancel
-                if self.state == .active {
-                    self.state = .idle
-                    DispatchQueue.main.async { [weak self] in
-                        self?.delegate?.hotkeyDidCancel()
+                self.serialQueue.sync {
+                    if self.state == .active {
+                        self.state = .idle
+                        DispatchQueue.main.async { [weak self] in
+                            self?.delegate?.hotkeyDidCancel()
+                        }
                     }
                 }
             }
@@ -161,10 +164,12 @@ final class HotkeyManager {
             if let tap = eventTap {
                 CGEvent.tapEnable(tap: tap, enable: true)
             }
-            if state == .active {
-                state = .idle
-                DispatchQueue.main.async { [weak self] in
-                    self?.delegate?.hotkeyDidCancel()
+            serialQueue.sync {
+                if state == .active {
+                    state = .idle
+                    DispatchQueue.main.async { [weak self] in
+                        self?.delegate?.hotkeyDidCancel()
+                    }
                 }
             }
             return Unmanaged.passUnretained(event)
@@ -184,17 +189,19 @@ final class HotkeyManager {
         let flags = event.flags
         let optionDown = flags.contains(.maskAlternate)
 
-        switch state {
-        case .idle:
-            if optionDown {
-                // Don't activate yet — wait for Tab keyDown
-            }
-        case .active:
-            if !optionDown {
-                // Option released → confirm selection
-                state = .idle
-                DispatchQueue.main.async { [weak self] in
-                    self?.delegate?.hotkeyDidConfirm()
+        serialQueue.sync {
+            switch state {
+            case .idle:
+                if optionDown {
+                    // Don't activate yet — wait for Tab keyDown
+                }
+            case .active:
+                if !optionDown {
+                    // Option released → confirm selection
+                    state = .idle
+                    DispatchQueue.main.async { [weak self] in
+                        self?.delegate?.hotkeyDidConfirm()
+                    }
                 }
             }
         }
@@ -203,6 +210,7 @@ final class HotkeyManager {
         return Unmanaged.passUnretained(event)
     }
 
+    // swiftlint:disable:next function_body_length
     private func handleKeyDown(_ event: CGEvent) -> Unmanaged<CGEvent>? {
         let keyCode = event.getIntegerValueField(.keyboardEventKeycode)
         let flags = event.flags
@@ -210,64 +218,66 @@ final class HotkeyManager {
         let optionDown = flags.contains(.maskAlternate)
         let shiftDown = flags.contains(.maskShift)
 
-        switch state {
-        case .idle:
-            // Option + Tab → activate switcher
-            if optionDown && keyCode == kVK_Tab {
-                state = .active
-                DispatchQueue.main.async { [weak self] in
-                    self?.delegate?.hotkeyDidActivate()
+        return serialQueue.sync { () -> Unmanaged<CGEvent>? in
+            switch state {
+            case .idle:
+                // Option + Tab → activate switcher
+                if optionDown && keyCode == kVK_Tab {
+                    state = .active
+                    DispatchQueue.main.async { [weak self] in
+                        self?.delegate?.hotkeyDidActivate()
+                    }
+                    return nil // swallow the Tab
                 }
-                return nil // swallow the Tab
-            }
 
-        case .active:
-            switch Int(keyCode) {
-            case kVK_Tab:
-                if shiftDown {
+            case .active:
+                switch Int(keyCode) {
+                case kVK_Tab:
+                    if shiftDown {
+                        DispatchQueue.main.async { [weak self] in
+                            self?.delegate?.hotkeyDidCyclePrevious()
+                        }
+                    } else {
+                        DispatchQueue.main.async { [weak self] in
+                            self?.delegate?.hotkeyDidCycleNext()
+                        }
+                    }
+                    return nil // swallow
+
+                case kVK_LeftArrow:
                     DispatchQueue.main.async { [weak self] in
                         self?.delegate?.hotkeyDidCyclePrevious()
                     }
-                } else {
+                    return nil
+
+                case kVK_RightArrow:
                     DispatchQueue.main.async { [weak self] in
                         self?.delegate?.hotkeyDidCycleNext()
                     }
-                }
-                return nil // swallow
+                    return nil
 
-            case kVK_LeftArrow:
-                DispatchQueue.main.async { [weak self] in
-                    self?.delegate?.hotkeyDidCyclePrevious()
-                }
-                return nil
+                case kVK_Escape:
+                    state = .idle
+                    DispatchQueue.main.async { [weak self] in
+                        self?.delegate?.hotkeyDidCancel()
+                    }
+                    return nil
 
-            case kVK_RightArrow:
-                DispatchQueue.main.async { [weak self] in
-                    self?.delegate?.hotkeyDidCycleNext()
-                }
-                return nil
+                case kVK_Return:
+                    state = .idle
+                    DispatchQueue.main.async { [weak self] in
+                        self?.delegate?.hotkeyDidConfirm()
+                    }
+                    return nil
 
-            case kVK_Escape:
-                state = .idle
-                DispatchQueue.main.async { [weak self] in
-                    self?.delegate?.hotkeyDidCancel()
+                default:
+                    break
                 }
-                return nil
-
-            case kVK_Return:
-                state = .idle
-                DispatchQueue.main.async { [weak self] in
-                    self?.delegate?.hotkeyDidConfirm()
-                }
-                return nil
-
-            default:
-                break
             }
-        }
 
-        // Pass through all other keys
-        return Unmanaged.passUnretained(event)
+            // Pass through all other keys
+            return Unmanaged.passUnretained(event)
+        }
     }
 }
 

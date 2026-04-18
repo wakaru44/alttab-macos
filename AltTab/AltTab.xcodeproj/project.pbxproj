@@ -7,20 +7,60 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A10000010000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000001; };
-		A10000020000000000000002 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000020000000000000002; };
-		A10000030000000000000003 /* WindowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000030000000000000003; };
-		A10000040000000000000004 /* WindowCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000040000000000000004; };
-		A10000050000000000000005 /* SwitcherPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000050000000000000005; };
-		A10000060000000000000006 /* ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000060000000000000006; };
-		A10000070000000000000007 /* WindowActivator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000070000000000000007; };
-		A10000080000000000000008 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000080000000000000008; };
-		A10000090000000000000009 /* PreferencesMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000090000000000000009; };
-		A1000010000000000000000A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2000010000000000000000A; };
-		A100001100000000000000B0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200001300000000000000B0; };
+		20901F49D669C16E4B6DF3F7 /* SwitcherViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C17047CEAC240CED272490 /* SwitcherViewModelTests.swift */; };
+		A10000010000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000001 /* AppDelegate.swift */; };
+		A10000020000000000000002 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000020000000000000002 /* HotkeyManager.swift */; };
+		A10000030000000000000003 /* WindowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000030000000000000003 /* WindowModel.swift */; };
+		A10000040000000000000004 /* WindowCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000040000000000000004 /* WindowCapture.swift */; };
+		A10000050000000000000005 /* SwitcherPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000050000000000000005 /* SwitcherPanel.swift */; };
+		A10000060000000000000006 /* ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000060000000000000006 /* ThumbnailView.swift */; };
+		A10000070000000000000007 /* WindowActivator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000070000000000000007 /* WindowActivator.swift */; };
+		A10000080000000000000008 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000080000000000000008 /* PermissionManager.swift */; };
+		A10000090000000000000009 /* PreferencesMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000090000000000000009 /* PreferencesMenu.swift */; };
+		A1000010000000000000000A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2000010000000000000000A /* Assets.xcassets */; };
+		A100001100000000000000B0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200001300000000000000B0 /* main.swift */; };
+		A2C9B0786BADBFA90E04D26C /* ThumbnailRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA125F7874BD7BE436D6A1 /* ThumbnailRepositoryTests.swift */; };
+		A530815F6A213E923884DFA0 /* WindowActivatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B01C4DE25146C4EA2C03CBE /* WindowActivatorTests.swift */; };
+		BA1010101 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010101 /* Protocols.swift */; };
+		BA1010102 /* AccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010102 /* AccessibilityService.swift */; };
+		BA1010103 /* WindowEnumerationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010103 /* WindowEnumerationService.swift */; };
+		BA1010104 /* ThumbnailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1010104 /* ThumbnailRepository.swift */; };
+		BF2BA1C12F83D59D005B9BE3 /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2BA1C02F83D59D005B9BE3 /* SettingsWindow.swift */; };
+		D6D4F592F5514633 /* MRUTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9159495798A4356 /* MRUTracker.swift */; };
+		F8E9B2A3D5C14E18 /* WindowTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F8A3B4C6D24F29 /* WindowTracker.swift */; };
+		FE233A5F962A4750821BAE1F /* SwitcherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */; };
+		HELPER0001 /* WindowInfoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = HELPERFILE0001 /* WindowInfoFactory.swift */; };
+		MOCK0001 /* MockAccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0001 /* MockAccessibilityService.swift */; };
+		MOCK0002 /* MockWindowEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0002 /* MockWindowEnumerator.swift */; };
+		MOCK0003 /* MockThumbnailCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0003 /* MockThumbnailCache.swift */; };
+		MOCK0004 /* MockThumbnailCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0004 /* MockThumbnailCapture.swift */; };
+		MOCK0005 /* MockMRUTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0005 /* MockMRUTracker.swift */; };
+		MOCK0006 /* MockWindowTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = MOCKFILE0006 /* MockWindowTracker.swift */; };
+		TEST0001 /* SanityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0001 /* SanityTests.swift */; };
+		TEST0002 /* MRUTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0002 /* MRUTrackerTests.swift */; };
+		TEST0003 /* WindowEnumerationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0003 /* WindowEnumerationServiceTests.swift */; };
+		TEST0004 /* WindowTrackingIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0004 /* WindowTrackingIntegrationTests.swift */; };
+		TEST0005 /* EnumerationPipelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TESTFILE0005 /* EnumerationPipelineTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		TESTPROXY0001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A90000010000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A60000010000000000000001;
+			remoteInfo = AltTab;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		05C17047CEAC240CED272490 /* SwitcherViewModelTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwitcherViewModelTests.swift; sourceTree = "<group>"; };
+		4B01C4DE25146C4EA2C03CBE /* WindowActivatorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WindowActivatorTests.swift; sourceTree = "<group>"; };
+		6DFA125F7874BD7BE436D6A1 /* ThumbnailRepositoryTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThumbnailRepositoryTests.swift; sourceTree = "<group>"; };
+		A1010101 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		A1010102 /* AccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityService.swift; sourceTree = "<group>"; };
+		A1010103 /* WindowEnumerationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowEnumerationService.swift; sourceTree = "<group>"; };
+		A1010104 /* ThumbnailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailRepository.swift; sourceTree = "<group>"; };
 		A20000010000000000000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A20000020000000000000002 /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
 		A20000030000000000000003 /* WindowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowModel.swift; sourceTree = "<group>"; };
@@ -35,6 +75,24 @@
 		A2000012000000000000000C /* AltTab.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AltTab.entitlements; sourceTree = "<group>"; };
 		A200001300000000000000B0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A3000001000000000000000D /* AltTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AltTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF2BA1C02F83D59D005B9BE3 /* SettingsWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindow.swift; sourceTree = "<group>"; };
+		C9159495798A4356 /* MRUTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRUTracker.swift; sourceTree = "<group>"; };
+		D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitcherViewModel.swift; sourceTree = "<group>"; };
+		E7F8A3B4C6D24F29 /* WindowTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTracker.swift; sourceTree = "<group>"; };
+		HELPERFILE0001 /* WindowInfoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowInfoFactory.swift; sourceTree = "<group>"; };
+		MOCKFILE0001 /* MockAccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAccessibilityService.swift; sourceTree = "<group>"; };
+		MOCKFILE0002 /* MockWindowEnumerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWindowEnumerator.swift; sourceTree = "<group>"; };
+		MOCKFILE0003 /* MockThumbnailCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockThumbnailCache.swift; sourceTree = "<group>"; };
+		MOCKFILE0004 /* MockThumbnailCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockThumbnailCapture.swift; sourceTree = "<group>"; };
+		MOCKFILE0005 /* MockMRUTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMRUTracker.swift; sourceTree = "<group>"; };
+		MOCKFILE0006 /* MockWindowTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWindowTracker.swift; sourceTree = "<group>"; };
+		TESTBUNDLE0001 /* AltTabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AltTabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		TESTFILE0001 /* SanityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanityTests.swift; sourceTree = "<group>"; };
+		TESTFILE0002 /* MRUTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRUTrackerTests.swift; sourceTree = "<group>"; };
+		TESTFILE0003 /* WindowEnumerationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowEnumerationServiceTests.swift; sourceTree = "<group>"; };
+		TESTFILE0004 /* WindowTrackingIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTrackingIntegrationTests.swift; sourceTree = "<group>"; };
+		TESTFILE0005 /* EnumerationPipelineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumerationPipelineTests.swift; sourceTree = "<group>"; };
+		TESTINFO0001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,13 +103,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		TESTFWK0001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16B8B9EED885373E474CC07C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		937925FFB5C1BD57B2205982 /* AltTabTests */ = {
+			isa = PBXGroup;
+			children = (
+				16B8B9EED885373E474CC07C /* ViewModels */,
+			);
+			name = AltTabTests;
+			sourceTree = "<group>";
+		};
 		A50000010000000000000001 = {
 			isa = PBXGroup;
 			children = (
 				A50000020000000000000002 /* AltTab */,
+				TESTGROUP0001 /* AltTabTests */,
 				A50000030000000000000003 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,10 +140,17 @@
 		A50000020000000000000002 /* AltTab */ = {
 			isa = PBXGroup;
 			children = (
+				BF2BA1C02F83D59D005B9BE3 /* SettingsWindow.swift */,
 				A20000010000000000000001 /* AppDelegate.swift */,
+				A1010101 /* Protocols.swift */,
+				A1010102 /* AccessibilityService.swift */,
+				A1010103 /* WindowEnumerationService.swift */,
+				A1010104 /* ThumbnailRepository.swift */,
 				A20000020000000000000002 /* HotkeyManager.swift */,
+				C9159495798A4356 /* MRUTracker.swift */,
 				A20000030000000000000003 /* WindowModel.swift */,
 				A20000040000000000000004 /* WindowCapture.swift */,
+				E7F8A3B4C6D24F29 /* WindowTracker.swift */,
 				A20000050000000000000005 /* SwitcherPanel.swift */,
 				A20000060000000000000006 /* ThumbnailView.swift */,
 				A20000070000000000000007 /* WindowActivator.swift */,
@@ -72,6 +160,8 @@
 				A2000010000000000000000A /* Assets.xcassets */,
 				A2000011000000000000000B /* Info.plist */,
 				A2000012000000000000000C /* AltTab.entitlements */,
+				D7B27C67E3DE414C8D30BA53 /* SwitcherViewModel.swift */,
+				937925FFB5C1BD57B2205982 /* AltTabTests */,
 			);
 			path = AltTab;
 			sourceTree = "<group>";
@@ -80,11 +170,76 @@
 			isa = PBXGroup;
 			children = (
 				A3000001000000000000000D /* AltTab.app */,
+				TESTBUNDLE0001 /* AltTabTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-/* End PBXGroup section */
+		E0D4B284DC931BD409D872B3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				05C17047CEAC240CED272490 /* SwitcherViewModelTests.swift */,
+			);
+			name = ViewModels;
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		HELPERGROUP0001 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				HELPERFILE0001 /* WindowInfoFactory.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		MOCKGROUP0001 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				MOCKFILE0001 /* MockAccessibilityService.swift */,
+				MOCKFILE0002 /* MockWindowEnumerator.swift */,
+				MOCKFILE0003 /* MockThumbnailCache.swift */,
+				MOCKFILE0004 /* MockThumbnailCapture.swift */,
+				MOCKFILE0005 /* MockMRUTracker.swift */,
+				MOCKFILE0006 /* MockWindowTracker.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		SERVICESGROUP0001 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				TESTFILE0002 /* MRUTrackerTests.swift */,
+				TESTFILE0003 /* WindowEnumerationServiceTests.swift */,
+				6DFA125F7874BD7BE436D6A1 /* ThumbnailRepositoryTests.swift */,
+				4B01C4DE25146C4EA2C03CBE /* WindowActivatorTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		TESTGROUP0001 /* AltTabTests */ = {
+			isa = PBXGroup;
+			children = (
+				TESTFILE0001 /* SanityTests.swift */,
+				SERVICESGROUP0001 /* Services */,
+				INTEGRATIONGROUP0001 /* Integration */,
+				MOCKGROUP0001 /* Mocks */,
+				HELPERGROUP0001 /* Helpers */,
+				TESTINFO0001 /* Info.plist */,
+				E0D4B284DC931BD409D872B3 /* ViewModels */,
+			);
+			path = AltTabTests;
+			sourceTree = "<group>";
+		};
+		INTEGRATIONGROUP0001 /* Integration */ = {
+			isa = PBXGroup;
+			children = (
+				TESTFILE0004 /* WindowTrackingIntegrationTests.swift */,
+				TESTFILE0005 /* EnumerationPipelineTests.swift */,
+			);
+			path = Integration;
+			sourceTree = "<group>";
+		};
+		/* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
 		A60000010000000000000001 /* AltTab */ = {
@@ -103,6 +258,24 @@
 			productName = AltTab;
 			productReference = A3000001000000000000000D /* AltTab.app */;
 			productType = "com.apple.product-type.application";
+		};
+		TESTTARGET0001 /* AltTabTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = TESTCONFIG0001 /* Build configuration list for PBXNativeTarget "AltTabTests" */;
+			buildPhases = (
+				TESTSRC0001 /* Sources */,
+				TESTFWK0001 /* Frameworks */,
+				TESTRES0001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				TESTDEP0001 /* PBXTargetDependency */,
+			);
+			name = AltTabTests;
+			productName = AltTabTests;
+			productReference = TESTBUNDLE0001 /* AltTabTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -133,6 +306,7 @@
 			projectRoot = "";
 			targets = (
 				A60000010000000000000001 /* AltTab */,
+				TESTTARGET0001 /* AltTabTests */,
 			);
 		};
 /* End PBXProject section */
@@ -146,6 +320,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		TESTRES0001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -153,20 +334,58 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF2BA1C12F83D59D005B9BE3 /* SettingsWindow.swift in Sources */,
 				A10000010000000000000001 /* AppDelegate.swift in Sources */,
+				BA1010101 /* Protocols.swift in Sources */,
+				BA1010102 /* AccessibilityService.swift in Sources */,
+				BA1010103 /* WindowEnumerationService.swift in Sources */,
+				BA1010104 /* ThumbnailRepository.swift in Sources */,
 				A10000020000000000000002 /* HotkeyManager.swift in Sources */,
+				D6D4F592F5514633 /* MRUTracker.swift in Sources */,
 				A10000030000000000000003 /* WindowModel.swift in Sources */,
 				A10000040000000000000004 /* WindowCapture.swift in Sources */,
+				F8E9B2A3D5C14E18 /* WindowTracker.swift in Sources */,
 				A10000050000000000000005 /* SwitcherPanel.swift in Sources */,
 				A10000060000000000000006 /* ThumbnailView.swift in Sources */,
 				A10000070000000000000007 /* WindowActivator.swift in Sources */,
 				A10000080000000000000008 /* PermissionManager.swift in Sources */,
 				A10000090000000000000009 /* PreferencesMenu.swift in Sources */,
 				A100001100000000000000B0 /* main.swift in Sources */,
+				FE233A5F962A4750821BAE1F /* SwitcherViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		TESTSRC0001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				TEST0001 /* SanityTests.swift in Sources */,
+				TEST0002 /* MRUTrackerTests.swift in Sources */,
+				TEST0003 /* WindowEnumerationServiceTests.swift in Sources */,
+				TEST0004 /* WindowTrackingIntegrationTests.swift in Sources */,
+				TEST0005 /* EnumerationPipelineTests.swift in Sources */,
+				MOCK0001 /* MockAccessibilityService.swift in Sources */,
+				MOCK0002 /* MockWindowEnumerator.swift in Sources */,
+				MOCK0003 /* MockThumbnailCache.swift in Sources */,
+				MOCK0004 /* MockThumbnailCapture.swift in Sources */,
+				MOCK0005 /* MockMRUTracker.swift in Sources */,
+				MOCK0006 /* MockWindowTracker.swift in Sources */,
+				HELPER0001 /* WindowInfoFactory.swift in Sources */,
+				20901F49D669C16E4B6DF3F7 /* SwitcherViewModelTests.swift in Sources */,
+				A2C9B0786BADBFA90E04D26C /* ThumbnailRepositoryTests.swift in Sources */,
+				A530815F6A213E923884DFA0 /* WindowActivatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		TESTDEP0001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A60000010000000000000001 /* AltTab */;
+			targetProxy = TESTPROXY0001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B10000010000000000000001 /* Debug */ = {
@@ -221,11 +440,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				CLANG_ANALYZER_DEADCODE_DEADSTORES = YES;
+				CLANG_ANALYZER_MEMORY_MANAGEMENT = YES;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_UNCHECKEDRETURN = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -277,10 +502,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				CLANG_ANALYZER_DEADCODE_DEADSTORES = YES;
+				CLANG_ANALYZER_MEMORY_MANAGEMENT = YES;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_UNCHECKEDRETURN = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
@@ -331,6 +563,54 @@
 			};
 			name = Release;
 		};
+		TESTDEBUG0001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = AltTabTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alttab.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AltTab.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AltTab";
+			};
+			name = Debug;
+		};
+		TESTRELEASE0001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = AltTabTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alttab.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AltTab.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AltTab";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -352,8 +632,16 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		TESTCONFIG0001 /* Build configuration list for PBXNativeTarget "AltTabTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				TESTDEBUG0001 /* Debug */,
+				TESTRELEASE0001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
-
 	};
 	rootObject = A90000010000000000000001 /* Project object */;
 }

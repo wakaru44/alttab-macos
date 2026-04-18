@@ -24,6 +24,7 @@ final class ThumbnailView: NSView {
     }
 
     private let imageView: NSImageView
+    private let appIconBadge: NSImageView
     private let titleLabel: NSTextField
     private let appLabel: NSTextField
     private let selectionBorder: NSView
@@ -33,6 +34,7 @@ final class ThumbnailView: NSView {
         self.thumbnailHeight = height - 50 // Reserve space for labels
 
         imageView = NSImageView()
+        appIconBadge = NSImageView()
         titleLabel = NSTextField(labelWithString: "")
         appLabel = NSTextField(labelWithString: "")
         selectionBorder = NSView()
@@ -49,6 +51,7 @@ final class ThumbnailView: NSView {
 
     // MARK: - Setup
 
+    // swiftlint:disable:next function_body_length
     private func setupViews(width: CGFloat, height: CGFloat) {
         wantsLayer = true
 
@@ -68,6 +71,17 @@ final class ThumbnailView: NSView {
         imageView.layer?.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(imageView)
+
+        // App icon badge (overlaid on thumbnail)
+        appIconBadge.imageScaling = .scaleProportionallyUpOrDown
+        appIconBadge.wantsLayer = true
+        appIconBadge.layer?.cornerRadius = 4
+        appIconBadge.layer?.masksToBounds = true
+        appIconBadge.layer?.borderWidth = 1.5
+        appIconBadge.layer?.borderColor = NSColor.black.withAlphaComponent(0.3).cgColor
+        appIconBadge.translatesAutoresizingMaskIntoConstraints = false
+        appIconBadge.isHidden = true // Hidden by default, shown when thumbnail exists
+        addSubview(appIconBadge)
 
         // Window title
         titleLabel.font = NSFont.systemFont(ofSize: 11, weight: .medium)
@@ -101,6 +115,12 @@ final class ThumbnailView: NSView {
             imageView.widthAnchor.constraint(equalToConstant: width - 16),
             imageView.heightAnchor.constraint(equalToConstant: thumbnailHeight),
 
+            // App icon badge in bottom-right corner of thumbnail
+            appIconBadge.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -6),
+            appIconBadge.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -6),
+            appIconBadge.widthAnchor.constraint(equalToConstant: 32),
+            appIconBadge.heightAnchor.constraint(equalToConstant: 32),
+
             // Title below image
             titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 4),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
@@ -113,7 +133,7 @@ final class ThumbnailView: NSView {
 
             // Fixed size
             widthAnchor.constraint(equalToConstant: width),
-            heightAnchor.constraint(equalToConstant: height),
+            heightAnchor.constraint(equalToConstant: height)
         ])
     }
 
@@ -122,11 +142,15 @@ final class ThumbnailView: NSView {
         appLabel.stringValue = windowInfo.ownerName
 
         if let thumbnail = windowInfo.thumbnail {
+            // Show thumbnail with app icon badge
             imageView.image = thumbnail
+            imageView.alphaValue = 1.0
+            appIconBadge.image = windowInfo.appIcon
+            appIconBadge.isHidden = false
         } else {
-            // Fallback: app icon
-            let icon = windowInfo.appIcon
-            imageView.image = icon
+            // Fallback: app icon only (no badge)
+            imageView.image = windowInfo.appIcon
+            appIconBadge.isHidden = true
             if windowInfo.isMinimized {
                 imageView.alphaValue = 0.7
             }
