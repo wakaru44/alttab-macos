@@ -67,6 +67,27 @@ logs: ##@Debug Show debug logs
 clean: ##@App Clean build artifacts
 	./build.sh clean
 
+icon: ##@App Generate app icon from icon_base.svg
+	@echo "Generating macOS app icon..."
+	@ICONDIR=AltTab/AltTab/Assets.xcassets/AppIcon.appiconset; \
+	for size in 16 32 64 128 256 512 1024; do \
+		rsvg-convert -w $$size -h $$size icon_base.svg -o $$ICONDIR/icon_$${size}x$${size}.png; \
+		echo "  Generated $${size}x$${size}"; \
+	done
+	@echo '{ "images": [' > AltTab/AltTab/Assets.xcassets/AppIcon.appiconset/Contents.json
+	@echo '  {"idiom":"mac","scale":"1x","size":"16x16","filename":"icon_16x16.png"},' >> AltTab/AltTab/Assets.xcassets/AppIcon.appiconset/Contents.json
+	@echo '  {"idiom":"mac","scale":"2x","size":"16x16","filename":"icon_32x32.png"},' >> AltTab/AltTab/Assets.xcassets/AppIcon.appiconset/Contents.json
+	@echo '  {"idiom":"mac","scale":"1x","size":"32x32","filename":"icon_32x32.png"},' >> AltTab/AltTab/Assets.xcassets/AppIcon.appiconset/Contents.json
+	@echo '  {"idiom":"mac","scale":"2x","size":"32x32","filename":"icon_64x64.png"},' >> AltTab/AltTab/Assets.xcassets/AppIcon.appiconset/Contents.json
+	@echo '  {"idiom":"mac","scale":"1x","size":"128x128","filename":"icon_128x128.png"},' >> AltTab/AltTab/Assets.xcassets/AppIcon.appiconset/Contents.json
+	@echo '  {"idiom":"mac","scale":"2x","size":"128x128","filename":"icon_256x256.png"},' >> AltTab/AltTab/Assets.xcassets/AppIcon.appiconset/Contents.json
+	@echo '  {"idiom":"mac","scale":"1x","size":"256x256","filename":"icon_256x256.png"},' >> AltTab/AltTab/Assets.xcassets/AppIcon.appiconset/Contents.json
+	@echo '  {"idiom":"mac","scale":"2x","size":"256x256","filename":"icon_512x512.png"},' >> AltTab/AltTab/Assets.xcassets/AppIcon.appiconset/Contents.json
+	@echo '  {"idiom":"mac","scale":"1x","size":"512x512","filename":"icon_512x512.png"},' >> AltTab/AltTab/Assets.xcassets/AppIcon.appiconset/Contents.json
+	@echo '  {"idiom":"mac","scale":"2x","size":"512x512","filename":"icon_1024x1024.png"}' >> AltTab/AltTab/Assets.xcassets/AppIcon.appiconset/Contents.json
+	@echo '], "info": {"author":"xcode","version":1}}' >> AltTab/AltTab/Assets.xcassets/AppIcon.appiconset/Contents.json
+	@echo "App icon generated."
+
 reset-perms: ##@Debug Deep clean TCC cache and build artifacts
 	@echo "Killing AltTab..."
 	@pkill -9 AltTab 2>/dev/null || true
